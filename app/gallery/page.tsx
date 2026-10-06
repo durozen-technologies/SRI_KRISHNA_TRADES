@@ -160,44 +160,44 @@ export default function GalleryPage() {
       </div>
 
       {/* ========================================================================= */}
-      {/* 2. FLOATING MINIMAL HEADER (Top Overlay)                                  */}
+      {/* 2. FLOATING HEADER (Matches Main Website Theme & Branding)                */}
       {/* ========================================================================= */}
-      <header className="relative z-30 w-full px-4 sm:px-8 py-3 sm:py-6 flex items-center justify-between pointer-events-auto">
+      <header className="relative z-30 w-full px-4 sm:px-8 py-3.5 sm:py-5 flex items-center justify-between pointer-events-auto">
         {/* Brand Logo & Name */}
         <Link 
           href="/" 
           className="flex items-center gap-2.5 sm:gap-3 group focus:outline-none"
         >
-          <div className="w-8 h-8 sm:w-11 sm:h-11 rounded-xl bg-white/15 hover:bg-white/25 border border-white/25 backdrop-blur-md flex items-center justify-center text-white shadow-lg group-hover:scale-105 transition-transform duration-300">
-            <Building2 className="w-4 h-4 sm:w-5 sm:h-5 text-orange-400" />
+          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-orange-600 border border-orange-500/30 flex items-center justify-center text-white shadow-md shadow-orange-600/30 group-hover:scale-105 transition-transform duration-300">
+            <Building2 className="w-5 h-5 text-white" />
           </div>
           <div className="flex flex-col justify-center min-w-0">
             <div className="flex items-center whitespace-nowrap leading-none">
-              <span className="font-extrabold text-xs xs:text-[15px] sm:text-xl tracking-tight text-white drop-shadow-md">
+              <span className="font-extrabold text-sm sm:text-lg tracking-tight text-white">
                 SRI KRISHNA
               </span>
-              <span className="font-bold sm:font-light text-xs xs:text-[15px] sm:text-xl tracking-wider text-orange-400 ml-1 drop-shadow-md">
+              <span className="font-bold text-sm sm:text-lg tracking-wider text-orange-400 ml-1">
                 TRADERS
               </span>
             </div>
-            <p className="text-[9px] sm:text-[10px] uppercase font-semibold tracking-wider text-slate-300 mt-1 hidden sm:block">
+            <p className="text-[9px] sm:text-[10px] uppercase font-semibold tracking-wider text-slate-400 mt-1 hidden sm:block">
               Hardware & Building Materials
             </p>
           </div>
         </Link>
 
-        {/* Center: Frosted Glass Nav Links (Desktop) */}
-        <nav className="hidden lg:flex items-center gap-1 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-xl border border-white/15 shadow-xl">
+        {/* Center: Website Theme Matching Nav Links (Desktop) */}
+        <nav className="hidden lg:flex items-center gap-1 px-3 py-1.5 rounded-full bg-[#0B192C]/85 backdrop-blur-xl border border-slate-700/70 shadow-xl">
           {navLinks.map((link) => {
             const isActive = link.href === '/gallery';
             return (
               <Link
                 key={link.name}
                 href={link.href}
-                className={`text-sm font-medium px-4 py-1.5 rounded-full transition-all duration-200 ${
+                className={`text-xs font-semibold px-4 py-1.5 rounded-full transition-all duration-200 ${
                   isActive
-                    ? 'bg-orange-600 text-white font-semibold shadow-sm shadow-orange-600/40'
-                    : 'text-slate-200 hover:text-white hover:bg-white/10'
+                    ? 'bg-orange-600 text-white shadow-sm shadow-orange-600/40'
+                    : 'text-slate-300 hover:text-white hover:bg-slate-800/70'
                 }`}
               >
                 {link.name}
@@ -211,7 +211,7 @@ export default function GalleryPage() {
           {/* Phone Quick Link (Desktop) */}
           <a
             href={`tel:${STORE_INFO.phone.replace(/\s+/g, '')}`}
-            className="hidden sm:flex items-center gap-2 text-xs font-semibold text-slate-200 hover:text-white px-3.5 py-2 rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 backdrop-blur-md transition"
+            className="hidden sm:flex items-center gap-2 text-xs font-semibold text-slate-200 hover:text-white px-3.5 py-2 rounded-xl bg-[#0B192C]/80 hover:bg-[#1E3E62] border border-slate-700/70 backdrop-blur-md transition shadow-xs"
           >
             <Phone className="w-3.5 h-3.5 text-orange-400" />
             <span>{STORE_INFO.phone}</span>
@@ -220,7 +220,7 @@ export default function GalleryPage() {
           {/* Enquiry Button */}
           <button
             onClick={() => openQuote(currentItem.category, currentItem.title)}
-            className="hidden xs:inline-flex items-center gap-1.5 bg-orange-600 hover:bg-orange-700 text-white font-semibold text-xs sm:text-sm px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl shadow-md shadow-orange-600/20 hover:shadow-lg transition duration-200 cursor-pointer active:scale-95"
+            className="hidden xs:inline-flex items-center gap-1.5 bg-orange-600 hover:bg-orange-700 text-white font-semibold text-xs sm:text-sm px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl shadow-md shadow-orange-600/30 hover:shadow-lg transition duration-200 cursor-pointer active:scale-95"
           >
             <MessageSquare className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             <span>Enquiry</span>
@@ -229,7 +229,7 @@ export default function GalleryPage() {
           {/* Mobile Menu Hamburger */}
           <button
             onClick={() => setMobileMenuOpen(true)}
-            className="lg:hidden p-2 rounded-xl bg-black/60 hover:bg-black/80 border border-white/20 backdrop-blur-md text-white transition focus:outline-none cursor-pointer shadow-md"
+            className="lg:hidden p-2 rounded-xl bg-[#0B192C]/80 hover:bg-[#1E3E62] border border-slate-700 text-white transition focus:outline-none cursor-pointer shadow-md"
             aria-label="Open menu"
           >
             <Menu className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -243,39 +243,39 @@ export default function GalleryPage() {
       <button
         type="button"
         onClick={handlePrev}
-        className="hidden sm:flex absolute left-4 sm:left-6 md:left-8 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-black/50 hover:bg-orange-600 text-white border border-white/20 hover:border-orange-500 backdrop-blur-md items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 shadow-2xl cursor-pointer focus:outline-none"
+        className="hidden sm:flex absolute left-4 sm:left-6 md:left-8 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#0B192C]/80 hover:bg-orange-600 text-white border border-slate-700 hover:border-orange-500 backdrop-blur-md items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 shadow-xl cursor-pointer focus:outline-none"
         aria-label="Previous image"
       >
-        <ChevronLeft className="w-5 h-5 sm:w-7 sm:h-7" />
+        <ChevronLeft className="w-5 h-5" />
       </button>
 
       <button
         type="button"
         onClick={handleNext}
-        className="hidden sm:flex absolute right-4 sm:right-6 md:right-8 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-14 sm:h-14 rounded-full bg-black/50 hover:bg-orange-600 text-white border border-white/20 hover:border-orange-500 backdrop-blur-md items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 shadow-2xl cursor-pointer focus:outline-none"
+        className="hidden sm:flex absolute right-4 sm:right-6 md:right-8 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#0B192C]/80 hover:bg-orange-600 text-white border border-slate-700 hover:border-orange-500 backdrop-blur-md items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 shadow-xl cursor-pointer focus:outline-none"
         aria-label="Next image"
       >
-        <ChevronRight className="w-5 h-5 sm:w-7 sm:h-7" />
+        <ChevronRight className="w-5 h-5" />
       </button>
 
       {/* ========================================================================= */}
       {/* 4. CONTENT OVERLAY (Bottom-Left) & THUMBNAIL STRIP (Bottom)               */}
       {/* ========================================================================= */}
-      <div className="relative z-20 w-full px-3.5 sm:px-8 pb-3 sm:pb-8 flex flex-col lg:flex-row items-start lg:items-end justify-between gap-2.5 sm:gap-6 pointer-events-auto">
+      <div className="relative z-20 w-full px-3.5 sm:px-8 pb-3 sm:pb-8 flex flex-col lg:flex-row items-start lg:items-end justify-between gap-3 sm:gap-6 pointer-events-auto">
         
         {/* Compact Mobile Info Block (Positioned at Bottom-Left / Left-Down) */}
-        <div className="sm:hidden self-start max-w-[210px] xs:max-w-[230px] bg-black/70 backdrop-blur-md border border-white/20 rounded-xl p-2 xs:p-2.5 shadow-2xl space-y-1 text-left animate-fade-in mb-1">
+        <div className="sm:hidden self-start max-w-[210px] xs:max-w-[230px] bg-[#0B192C]/90 backdrop-blur-md border border-slate-700/70 rounded-xl p-2 xs:p-2.5 shadow-2xl space-y-1 text-left animate-fade-in mb-1">
           {/* Badges & Counter */}
           <div className="flex items-center justify-between gap-1">
             <span className="px-1.5 py-0.5 rounded bg-orange-600 text-white text-[9px] font-bold uppercase tracking-wide">
               {currentItem.category}
             </span>
             {currentItem.badge && (
-              <span className="px-1.5 py-0.5 rounded bg-white/15 text-slate-200 text-[9px] font-semibold truncate max-w-[70px]">
+              <span className="px-1.5 py-0.5 rounded bg-slate-800 border border-slate-700 text-slate-200 text-[9px] font-semibold truncate max-w-[70px]">
                 {currentItem.badge}
               </span>
             )}
-            <span className="font-mono text-[9px] font-bold text-orange-400 bg-white/10 px-1.5 py-0.5 rounded ml-auto tracking-wider">
+            <span className="font-mono text-[9px] font-bold text-orange-400 bg-slate-800 border border-slate-700 px-1.5 py-0.5 rounded ml-auto tracking-wider">
               {formattedIndex}/{formattedTotal}
             </span>
           </div>
@@ -293,7 +293,7 @@ export default function GalleryPage() {
           )}
 
           {/* Inquire CTA + Mini Arrow Navigation Controls */}
-          <div className="flex items-center justify-between gap-1 pt-1 border-t border-white/10">
+          <div className="flex items-center justify-between gap-1 pt-1 border-t border-slate-700/50">
             <button
               type="button"
               onClick={() => openQuote(currentItem.category, currentItem.title)}
@@ -307,7 +307,7 @@ export default function GalleryPage() {
               <button
                 type="button"
                 onClick={handlePrev}
-                className="p-1 rounded bg-white/15 hover:bg-white/30 text-white active:scale-90 transition-all"
+                className="p-1 rounded bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white active:scale-90 transition-all"
                 aria-label="Previous slide"
               >
                 <ChevronLeft className="w-2.5 h-2.5" />
@@ -315,7 +315,7 @@ export default function GalleryPage() {
               <button
                 type="button"
                 onClick={handleNext}
-                className="p-1 rounded bg-white/15 hover:bg-white/30 text-white active:scale-90 transition-all"
+                className="p-1 rounded bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white active:scale-90 transition-all"
                 aria-label="Next slide"
               >
                 <ChevronRight className="w-2.5 h-2.5" />
@@ -324,88 +324,88 @@ export default function GalleryPage() {
           </div>
         </div>
 
-        {/* Full Desktop Content Overlay Card (Hidden on mobile to preserve clear image view) */}
-        <div className="hidden sm:block w-full max-w-xl bg-[#0B192C]/85 backdrop-blur-xl border border-white/15 rounded-3xl p-5 sm:p-7 shadow-2xl space-y-3.5 transition-all duration-300">
+        {/* Compact Desktop Content Overlay Card (Theme Matched & Proportionately Sized) */}
+        <div className="hidden sm:block w-full max-w-md lg:max-w-lg bg-[#0B192C]/90 backdrop-blur-xl border border-slate-700/70 rounded-2xl p-4 sm:p-5 shadow-2xl space-y-2.5 transition-all duration-300">
           
           {/* Category & Status Badges */}
           <div className="flex flex-wrap items-center gap-2">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-800 text-orange-400 text-xs font-bold uppercase tracking-wider border border-slate-700">
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-slate-800 text-orange-400 text-xs font-bold uppercase tracking-wider border border-slate-700">
               <Sparkles className="w-3.5 h-3.5 text-orange-400" />
               <span>{currentItem.category}</span>
             </span>
 
             {currentItem.badge && (
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-slate-200 text-xs font-semibold">
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-slate-800/80 border border-slate-700 text-slate-200 text-xs font-semibold">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
                 <span>{currentItem.badge}</span>
               </span>
             )}
 
             {/* Slide Counter Badge */}
-            <span className="ml-auto font-mono text-xs font-bold text-slate-300 px-2.5 py-0.5 rounded bg-white/10 border border-white/10 tracking-widest">
+            <span className="ml-auto font-mono text-xs font-bold text-slate-300 px-2 py-0.5 rounded bg-slate-800 border border-slate-700 tracking-widest">
               <span className="text-orange-400">{formattedIndex}</span> / {formattedTotal}
             </span>
           </div>
 
-          {/* Dynamic Title in Crisp White Modern Typography */}
-          <h1 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-white tracking-tight leading-tight">
+          {/* Dynamic Title in Crisp Brand Typography */}
+          <h1 className="text-base sm:text-lg lg:text-xl font-bold text-white tracking-tight leading-snug">
             {currentItem.title}
           </h1>
 
           {/* Description */}
           {currentItem.description && (
-            <p className="text-slate-300 text-xs sm:text-sm leading-relaxed line-clamp-2 sm:line-clamp-3">
+            <p className="text-slate-300 text-xs sm:text-[13px] leading-relaxed line-clamp-2">
               {currentItem.description}
             </p>
           )}
 
           {/* Primary Action Button */}
-          <div className="pt-2 flex items-center gap-3">
+          <div className="pt-1 flex items-center gap-2.5">
             <button
               type="button"
               onClick={() => openQuote(currentItem.category, currentItem.title)}
-              className="inline-flex items-center justify-center gap-2 bg-orange-600 hover:bg-orange-700 text-white font-semibold py-3 px-6 rounded-xl shadow-lg shadow-orange-600/30 transition duration-200 text-xs sm:text-sm cursor-pointer active:scale-95"
+              className="inline-flex items-center justify-center gap-1.5 bg-orange-600 hover:bg-orange-700 text-white font-semibold py-2 px-4 rounded-xl shadow-md shadow-orange-600/30 transition duration-200 text-xs cursor-pointer active:scale-95"
             >
-              <MessageSquare className="w-4 h-4" />
+              <MessageSquare className="w-3.5 h-3.5" />
               <span>Inquire Now</span>
             </button>
 
             <button
               type="button"
               onClick={() => setIsAutoPlay((prev) => !prev)}
-              className="inline-flex items-center gap-1.5 text-xs font-semibold px-4 py-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 text-slate-200 transition-colors cursor-pointer"
+              className="inline-flex items-center gap-1.5 text-xs font-semibold px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 transition-colors cursor-pointer"
               title={isAutoPlay ? 'Pause Slideshow' : 'Play Slideshow'}
             >
               {isAutoPlay ? (
                 <>
-                  <Pause className="w-3.5 h-3.5 text-orange-400" />
-                  <span className="hidden sm:inline">Pause</span>
+                  <Pause className="w-3 h-3 text-orange-400" />
+                  <span>Pause</span>
                 </>
               ) : (
                 <>
-                  <Play className="w-3.5 h-3.5 text-orange-400" />
-                  <span className="hidden sm:inline">Slideshow</span>
+                  <Play className="w-3 h-3 text-orange-400" />
+                  <span>Slideshow</span>
                 </>
               )}
             </button>
           </div>
         </div>
 
-        {/* Bottom Horizontal Thumbnail Strip (Preserved with distinct spacing below showroom image) */}
-        <div className="w-full lg:w-auto flex flex-col items-center lg:items-end gap-2 sm:gap-3">
+        {/* Bottom Horizontal Thumbnail Strip (Right / Bottom) */}
+        <div className="w-full lg:w-auto flex flex-col items-center lg:items-end gap-2 sm:gap-2.5">
           
           {/* Scrollable Thumbnail Strip */}
-          <div className="flex items-center gap-2 sm:gap-3 overflow-x-auto max-w-[95vw] sm:max-w-full pb-1 scrollbar-none p-1.5 sm:p-2 rounded-2xl bg-black/65 backdrop-blur-md border border-white/20 shadow-2xl">
+          <div className="flex items-center gap-2 sm:gap-2.5 overflow-x-auto max-w-[95vw] sm:max-w-full pb-1 scrollbar-none p-1.5 rounded-2xl bg-[#0B192C]/85 backdrop-blur-md border border-slate-700/70 shadow-2xl">
             {GALLERY_DATA.map((thumb, idx) => {
               const isSelected = idx === currentIndex;
               return (
                 <button
                   key={thumb.id}
                   onClick={() => handleJump(idx)}
-                  className={`relative w-12 h-9 xs:w-14 xs:h-10 sm:w-20 sm:h-14 rounded-lg sm:rounded-xl overflow-hidden shrink-0 border-2 transition-all duration-300 cursor-pointer focus:outline-none ${
+                  className={`relative w-12 h-9 xs:w-14 xs:h-10 sm:w-16 sm:h-12 md:w-18 md:h-13 rounded-lg overflow-hidden shrink-0 border-2 transition-all duration-300 cursor-pointer focus:outline-none ${
                     isSelected
-                      ? 'border-orange-500 scale-105 shadow-md shadow-orange-500/40 ring-2 ring-orange-500/50'
-                      : 'border-white/20 opacity-60 hover:opacity-100 hover:border-white/50'
+                      ? 'border-orange-500 scale-105 shadow-md shadow-orange-500/40 ring-2 ring-orange-500/40'
+                      : 'border-slate-700/60 opacity-60 hover:opacity-100 hover:border-slate-500'
                   }`}
                   aria-label={`Go to slide ${idx + 1}: ${thumb.title}`}
                 >
@@ -433,7 +433,7 @@ export default function GalleryPage() {
                 className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
                   idx === currentIndex
                     ? 'w-5 sm:w-6 bg-orange-500'
-                    : 'w-1.5 bg-white/40 hover:bg-white/70'
+                    : 'w-1.5 bg-slate-600 hover:bg-slate-400'
                 }`}
                 aria-label={`Jump to slide ${idx + 1}`}
               />
