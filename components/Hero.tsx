@@ -187,21 +187,6 @@ export default function Hero({ onOpenQuote }: HeroProps) {
                   className="object-cover object-center brightness-[1.15] contrast-[1.08]"
                   priority
                 />
-                
-                {/* Bottom Store Title Overlay */}
-                <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-slate-950/80 via-slate-950/40 to-transparent text-white pointer-events-none">
-                  <div>
-                    <span className="inline-block px-2.5 py-0.5 bg-orange-600 text-xs font-bold rounded uppercase tracking-wider mb-1">
-                      Storefront & Showroom
-                    </span>
-                    <p className="font-bold text-base leading-tight">
-                      Sri Krishna Traders — Retail & Project Counter
-                    </p>
-                    <p className="text-xs text-slate-200 mt-0.5">
-                      Hardware, Pipes, Electricals & Santé Bath Fittings
-                    </p>
-                  </div>
-                </div>
               </div>
 
               {/* Floating Badge Top Right */}
