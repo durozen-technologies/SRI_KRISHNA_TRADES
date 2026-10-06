@@ -7,8 +7,11 @@ import { STORE_INFO } from '@/data/storeData';
 
 export default function LocationSection() {
   const handleWhatsApp = () => {
-    window.open(`https://wa.me/919876543210?text=${encodeURIComponent('Hello Sri Krishna Traders, I would like to visit the store / inquire about materials.')}`, '_blank');
+    const rawNumber = STORE_INFO.whatsapp.replace(/[^0-9]/g, '');
+    window.open(`https://wa.me/${rawNumber}?text=${encodeURIComponent('Hello Sri Krishna Traders, I would like to visit the store / inquire about materials.')}`, '_blank');
   };
+
+  const mapUrl = `https://maps.google.com/?q=${encodeURIComponent('Sri Krishna Traders, Aayyampalayam 1-460, Tiruchengode - Namakkal - Trichy Road, Thummankurichi, Namakkal, Tamil Nadu 637003')}`;
 
   return (
     <section id="contact" className="py-16 sm:py-20 bg-white">
@@ -123,7 +126,7 @@ export default function LocationSection() {
           {/* Interactive Map Visual (Right side) */}
           <div
             onClick={() => {
-              window.open(`https://maps.google.com/?q=Sri+Krishna+Traders`, '_blank');
+              window.open(mapUrl, '_blank');
             }}
             className="lg:col-span-6 bg-slate-100 rounded-3xl overflow-hidden border border-slate-200 shadow-md relative h-96 sm:h-[420px] flex flex-col justify-between p-6 cursor-pointer group"
           >
@@ -146,7 +149,7 @@ export default function LocationSection() {
               </div>
               <div>
                 <div className="text-xs font-bold text-slate-900">Sri Krishna Traders Showroom</div>
-                <div className="text-[11px] text-slate-500">Hardware & Sanitary Market</div>
+                <div className="text-[11px] text-slate-500">Namakkal - Trichy Road</div>
               </div>
             </div>
 
@@ -171,7 +174,7 @@ export default function LocationSection() {
               </div>
               <button
                 onClick={() => {
-                  window.open(`https://maps.google.com/?q=Sri+Krishna+Traders`, '_blank');
+                  window.open(mapUrl, '_blank');
                 }}
                 className="w-full sm:w-auto bg-[#0B192C] hover:bg-[#1E3E62] text-white text-xs font-semibold py-2.5 px-4 rounded-xl transition flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
               >

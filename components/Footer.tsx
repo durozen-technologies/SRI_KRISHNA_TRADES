@@ -115,7 +115,7 @@ export default function Footer() {
                   <span className="truncate">{STORE_INFO.phone}</span>
                 </a>
                 <a
-                  href={`https://wa.me/919876543210`}
+                  href={`https://wa.me/${STORE_INFO.whatsapp.replace(/[^0-9]/g, '')}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-1.5 p-2 bg-slate-900/90 rounded-lg border border-slate-800 text-emerald-400"
@@ -230,12 +230,12 @@ export default function Footer() {
               <div className="flex items-center gap-2.5">
                 <MessageSquare className="w-4 h-4 text-orange-400 shrink-0" />
                 <a 
-                  href={`https://wa.me/919876543210`} 
+                  href={`https://wa.me/${STORE_INFO.whatsapp.replace(/[^0-9]/g, '')}`} 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="text-slate-300 hover:text-orange-400 transition"
                 >
-                  WhatsApp: +91 98765 43210
+                  WhatsApp: {STORE_INFO.whatsapp}
                 </a>
               </div>
 

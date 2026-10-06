@@ -36,7 +36,8 @@ export default function QuoteModal({ isOpen, onClose, initialCategory = '', init
     const text = encodeURIComponent(
       `Hello Sri Krishna Traders, I would like to request a quote.\n\nName: ${formData.name || 'Customer'}\nCategory: ${formData.category}\nRequirement: ${formData.requirement || 'General Project Material'}\nDelivery: ${formData.deliveryRequired ? 'Yes (On-Site)' : 'Store Pickup'}`
     );
-    window.open(`https://wa.me/919876543210?text=${text}`, '_blank');
+    const rawNumber = STORE_INFO.whatsapp.replace(/[^0-9]/g, '');
+    window.open(`https://wa.me/${rawNumber}?text=${text}`, '_blank');
   };
 
   return (
@@ -114,7 +115,7 @@ export default function QuoteModal({ isOpen, onClose, initialCategory = '', init
                   <input
                     type="tel"
                     required
-                    placeholder="+91 98765 43210"
+                    placeholder="e.g. +91 98765 00000"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     className="w-full px-3.5 py-2.5 border border-slate-300 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 text-slate-800"

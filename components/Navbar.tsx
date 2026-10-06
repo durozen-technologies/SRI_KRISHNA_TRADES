@@ -266,7 +266,7 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
               </a>
 
               <a
-                href={`https://wa.me/919876543210`}
+                href={`https://wa.me/${STORE_INFO.whatsapp.replace(/[^0-9]/g, '')}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2.5 p-2.5 bg-white rounded-xl border border-slate-200 text-slate-800 shadow-xs"

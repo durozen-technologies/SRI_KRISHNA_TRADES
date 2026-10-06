@@ -18,7 +18,8 @@ export default function ProductDetailModal({ product, onClose, onRequestQuote }:
     const text = encodeURIComponent(
       `Hello Sri Krishna Traders, I would like to inquire about price and stock availability for:\n\n*${product.name}*\nCategory: ${product.category}\nBrand: ${product.brand || 'Standard'}`
     );
-    window.open(`https://wa.me/919876543210?text=${text}`, '_blank');
+    const rawNumber = STORE_INFO.whatsapp.replace(/[^0-9]/g, '');
+    window.open(`https://wa.me/${rawNumber}?text=${text}`, '_blank');
   };
 
   return (
