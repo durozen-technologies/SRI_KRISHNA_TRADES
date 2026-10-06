@@ -13,7 +13,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
 
   return (
     <QuoteProvider>
-      <div className={`min-h-screen flex flex-col ${isGalleryPage ? 'h-screen overflow-hidden bg-black' : 'bg-white overflow-x-hidden'} selection:bg-orange-500 selection:text-white`}>
+      <div className={`min-h-screen flex flex-col ${isGalleryPage ? 'h-[100dvh] overflow-hidden bg-black' : 'bg-white overflow-x-hidden'} selection:bg-orange-500 selection:text-white`}>
         <Navbar />
         <main className={isGalleryPage ? 'flex-1 relative w-full h-full overflow-hidden' : 'flex-1'}>
           {children}

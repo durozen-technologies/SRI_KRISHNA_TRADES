@@ -142,47 +142,47 @@ export default function GalleryPage() {
       </div>
 
       {/* ========================================================================= */}
-      {/* 2. SIDE NAVIGATION ARROWS (Desktop)                                       */}
+      {/* 2. SIDE NAVIGATION ARROWS (Responsive on all viewports)                   */}
       {/* ========================================================================= */}
       <button
         type="button"
         onClick={handlePrev}
-        className="hidden sm:flex absolute left-4 sm:left-6 md:left-8 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#0B192C]/80 hover:bg-orange-600 text-white border border-slate-700 hover:border-orange-500 backdrop-blur-md items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 shadow-xl cursor-pointer focus:outline-none"
+        className="flex absolute left-2 sm:left-6 md:left-8 top-1/2 -translate-y-1/2 z-20 w-8 h-8 sm:w-11 sm:h-11 rounded-full bg-black/50 sm:bg-[#0B192C]/80 hover:bg-orange-600 text-white border border-white/20 sm:border-slate-700 hover:border-orange-500 backdrop-blur-md items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 shadow-xl cursor-pointer focus:outline-none"
         aria-label="Previous image"
       >
-        <ChevronLeft className="w-5 h-5" />
+        <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
       </button>
 
       <button
         type="button"
         onClick={handleNext}
-        className="hidden sm:flex absolute right-4 sm:right-6 md:right-8 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#0B192C]/80 hover:bg-orange-600 text-white border border-slate-700 hover:border-orange-500 backdrop-blur-md items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 shadow-xl cursor-pointer focus:outline-none"
+        className="flex absolute right-2 sm:right-6 md:right-8 top-1/2 -translate-y-1/2 z-20 w-8 h-8 sm:w-11 sm:h-11 rounded-full bg-black/50 sm:bg-[#0B192C]/80 hover:bg-orange-600 text-white border border-white/20 sm:border-slate-700 hover:border-orange-500 backdrop-blur-md items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 shadow-xl cursor-pointer focus:outline-none"
         aria-label="Next image"
       >
-        <ChevronRight className="w-5 h-5" />
+        <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
       </button>
 
       {/* ========================================================================= */}
       {/* 3. BOTTOM CONTROLS: THUMBNAILS & PAGINATION DOTS                          */}
       {/* ========================================================================= */}
-      <div className="relative z-20 w-full px-3.5 sm:px-8 pb-4 sm:pb-6 flex flex-col items-center justify-center gap-2 pointer-events-auto">
+      <div className="relative z-20 w-full px-2.5 sm:px-8 pb-3 sm:pb-5 flex flex-col items-center justify-center gap-1.5 sm:gap-2 pointer-events-auto">
         
-        {/* Subtle Slide Title & Counter Pill */}
-        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#0B192C]/85 backdrop-blur-md border border-slate-700/70 shadow-lg text-xs">
-          <span className="font-bold text-orange-400 uppercase tracking-wider text-[11px]">
+        {/* Subtle Slide Title & Counter Pill (Optimized for Mobile View) */}
+        <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1 rounded-full bg-[#0B192C]/90 backdrop-blur-md border border-slate-700/70 shadow-lg text-[11px] sm:text-xs max-w-[92vw] sm:max-w-md">
+          <span className="font-bold text-orange-400 uppercase tracking-wider text-[10px] sm:text-[11px] shrink-0">
             {currentItem.category}
           </span>
-          <span className="text-slate-500">•</span>
-          <span className="font-medium text-white truncate max-w-[200px] sm:max-w-md">
+          <span className="text-slate-500 shrink-0">•</span>
+          <span className="font-medium text-white truncate">
             {currentItem.title}
           </span>
-          <span className="font-mono text-[10px] font-bold text-slate-300 bg-slate-800 border border-slate-700 px-1.5 py-0.5 rounded ml-1 tracking-wider">
+          <span className="font-mono text-[10px] font-bold text-slate-300 bg-slate-800 border border-slate-700 px-1.5 py-0.5 rounded ml-auto shrink-0 tracking-wider">
             {formattedIndex}/{formattedTotal}
           </span>
         </div>
 
         {/* Scrollable Thumbnail Strip */}
-        <div className="flex items-center gap-2 sm:gap-2.5 overflow-x-auto max-w-[95vw] sm:max-w-full pb-1 scrollbar-none p-1.5 rounded-2xl bg-[#0B192C]/85 backdrop-blur-md border border-slate-700/70 shadow-2xl">
+        <div className="flex items-center gap-2 sm:gap-2.5 overflow-x-auto max-w-[94vw] sm:max-w-full pb-1 scrollbar-none p-1.5 rounded-xl sm:rounded-2xl bg-[#0B192C]/85 backdrop-blur-md border border-slate-700/70 shadow-2xl">
           {GALLERY_DATA.map((thumb, idx) => {
             const isSelected = idx === currentIndex;
             return (
