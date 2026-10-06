@@ -107,11 +107,11 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
                 <Building2 className="w-4 h-4 sm:w-6 sm:h-6 text-orange-400" />
               </div>
               <div className="flex flex-col justify-center min-w-0">
-                <div className="flex items-center whitespace-nowrap leading-none">
-                  <span className="font-extrabold text-sm xs:text-base sm:text-xl tracking-tight text-[#0B192C]">
+                <div className="flex flex-col sm:flex-row sm:items-center whitespace-nowrap leading-none">
+                  <span className="font-extrabold text-xs xs:text-sm sm:text-xl tracking-tight text-[#0B192C] leading-none">
                     SRI KRISHNA
                   </span>
-                  <span className="font-bold sm:font-light text-sm xs:text-base sm:text-xl tracking-wider text-orange-600 ml-1">
+                  <span className="font-bold sm:font-light text-[10px] xs:text-xs sm:text-xl tracking-wider text-orange-600 sm:ml-1 mt-0.5 sm:mt-0 leading-none">
                     TRADERS
                   </span>
                 </div>
