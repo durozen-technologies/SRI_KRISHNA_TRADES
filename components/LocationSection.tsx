@@ -34,26 +34,26 @@ export default function LocationSection() {
           <div className="lg:col-span-6 space-y-6">
             
             {/* Opening Hours Highlight Card */}
-            <div className="bg-[#0B192C] text-white rounded-2xl p-6 sm:p-7 shadow-lg relative overflow-hidden">
+            <div className="bg-[#0B192C] text-white rounded-2xl p-6 sm:p-7 shadow-sm relative overflow-hidden">
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-2.5">
-                  <div className="w-9 h-9 rounded-xl bg-orange-500/20 text-orange-400 flex items-center justify-center">
+                  <div className="w-9 h-9 rounded-xl bg-slate-800 text-orange-400 flex items-center justify-center">
                     <Clock className="w-5 h-5" />
                   </div>
                   <h3 className="font-bold text-lg text-white">Opening Hours</h3>
                 </div>
-                <span className="text-xs font-bold px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                <span className="text-xs font-bold px-3 py-1 rounded-full bg-slate-800 text-orange-400 border border-slate-700">
                   {STORE_INFO.timings.highlight}
                 </span>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-                <div className="bg-slate-800/80 p-4 rounded-xl border border-slate-700/60">
-                  <span className="block text-xs text-slate-400 font-medium">Monday – Saturday</span>
+                <div className="bg-slate-800/90 p-4 rounded-xl border border-slate-700">
+                  <span className="block text-xs text-slate-300 font-medium">Monday – Saturday</span>
                   <span className="text-base font-bold text-white mt-0.5 block">{STORE_INFO.timings.weekdays}</span>
                 </div>
-                <div className="bg-slate-800/80 p-4 rounded-xl border border-slate-700/60">
-                  <span className="block text-xs text-slate-400 font-medium">Sunday</span>
+                <div className="bg-slate-800/90 p-4 rounded-xl border border-slate-700">
+                  <span className="block text-xs text-slate-300 font-medium">Sunday</span>
                   <span className="text-base font-bold text-white mt-0.5 block">{STORE_INFO.timings.sunday}</span>
                 </div>
               </div>
@@ -65,54 +65,54 @@ export default function LocationSection() {
               {/* Phone Card */}
               <a
                 href={`tel:${STORE_INFO.phone.replace(/\s+/g, '')}`}
-                className="bg-slate-50 hover:bg-orange-50/50 p-5 rounded-2xl border border-slate-200 hover:border-orange-200 transition-all duration-200 flex flex-col justify-between group"
+                className="bg-slate-50 hover:bg-white p-5 rounded-2xl border border-slate-200 hover:border-orange-300 shadow-sm transition-all duration-200 flex flex-col justify-between group"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-white group-hover:bg-orange-600 group-hover:text-white text-orange-600 border border-slate-200 flex items-center justify-center transition-colors">
-                    <Phone className="w-5 h-5" />
+                  <div className="w-10 h-10 rounded-xl bg-white group-hover:bg-[#0B192C] text-[#0B192C] group-hover:text-white border border-slate-200 flex items-center justify-center transition-colors shadow-xs">
+                    <Phone className="w-5 h-5 text-orange-600" />
                   </div>
                   <div>
-                    <span className="text-xs text-slate-500 font-medium">Phone Enquiries</span>
-                    <h4 className="text-sm font-bold text-slate-900 group-hover:text-orange-600 transition-colors">
+                    <span className="text-xs text-slate-600 font-medium">Phone Enquiries</span>
+                    <h3 className="text-sm font-bold text-slate-900 group-hover:text-orange-600 transition-colors">
                       {STORE_INFO.phone}
-                    </h4>
+                    </h3>
                   </div>
                 </div>
-                <span className="text-[11px] font-semibold text-orange-600 mt-4 block">Click to Call Now →</span>
+                <span className="text-xs font-semibold text-orange-600 mt-4 block">Click to Call Now →</span>
               </a>
 
               {/* WhatsApp Card */}
               <button
                 onClick={handleWhatsApp}
-                className="bg-slate-50 hover:bg-emerald-50/50 p-5 rounded-2xl border border-slate-200 hover:border-emerald-200 transition-all duration-200 flex flex-col justify-between group text-left cursor-pointer"
+                className="bg-slate-50 hover:bg-white p-5 rounded-2xl border border-slate-200 hover:border-orange-300 shadow-sm transition-all duration-200 flex flex-col justify-between group text-left cursor-pointer"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-white group-hover:bg-emerald-600 group-hover:text-white text-emerald-600 border border-slate-200 flex items-center justify-center transition-colors">
-                    <MessageSquare className="w-5 h-5" />
+                  <div className="w-10 h-10 rounded-xl bg-white group-hover:bg-[#0B192C] text-[#0B192C] group-hover:text-white border border-slate-200 flex items-center justify-center transition-colors shadow-xs">
+                    <MessageSquare className="w-5 h-5 text-orange-600" />
                   </div>
                   <div>
-                    <span className="text-xs text-slate-500 font-medium">Instant WhatsApp</span>
-                    <h4 className="text-sm font-bold text-slate-900 group-hover:text-emerald-600 transition-colors">
+                    <span className="text-xs text-slate-600 font-medium">Instant WhatsApp</span>
+                    <h3 className="text-sm font-bold text-slate-900 group-hover:text-orange-600 transition-colors">
                       Chat with Project Desk
-                    </h4>
+                    </h3>
                   </div>
                 </div>
-                <span className="text-[11px] font-semibold text-emerald-600 mt-4 block">Open Chat on WhatsApp →</span>
+                <span className="text-xs font-semibold text-orange-600 mt-4 block">Open Chat on WhatsApp →</span>
               </button>
 
             </div>
 
             {/* Store Address Card */}
-            <div className="bg-slate-50 p-6 rounded-2xl border border-slate-200 flex items-start gap-4">
-              <div className="w-10 h-10 rounded-xl bg-white text-[#0B192C] border border-slate-200 flex items-center justify-center shrink-0">
+            <div className="bg-slate-50 p-6 rounded-2xl border border-slate-200 shadow-sm flex items-start gap-4">
+              <div className="w-10 h-10 rounded-xl bg-white text-[#0B192C] border border-slate-200 flex items-center justify-center shrink-0 shadow-xs">
                 <MapPin className="w-5 h-5 text-orange-600" />
               </div>
               <div className="space-y-1">
-                <h4 className="font-bold text-slate-900 text-sm sm:text-base">Store & Showroom Address</h4>
-                <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                <h3 className="font-bold text-slate-900 text-sm sm:text-base">Store & Showroom Address</h3>
+                <p className="text-slate-700 text-xs sm:text-sm leading-relaxed">
                   {STORE_INFO.address}
                 </p>
-                <p className="text-xs text-slate-400 pt-1">
+                <p className="text-xs text-slate-600 pt-1 font-medium">
                   Ample parking & easy loading space for transport vehicles.
                 </p>
               </div>

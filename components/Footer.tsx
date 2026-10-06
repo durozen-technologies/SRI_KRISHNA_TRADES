@@ -151,19 +151,19 @@ export default function Footer() {
           {/* Column 1: Company Profile (4 cols) */}
           <div className="lg:col-span-4 space-y-4">
             <Link href="/" className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 flex items-center justify-center text-white shadow-sm">
+              <div className="w-10 h-10 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center text-white shadow-sm">
                 <Building2 className="w-5 h-5 text-orange-400" />
               </div>
               <div>
                 <span className="font-extrabold text-xl tracking-tight text-white">SRI KRISHNA</span>{' '}
-                <span className="font-light text-xl text-orange-500">TRADERS</span>
-                <p className="text-[10px] uppercase font-semibold tracking-wider text-slate-400 -mt-0.5">
+                <span className="font-light text-xl text-orange-400">TRADERS</span>
+                <p className="text-xs uppercase font-semibold tracking-wider text-slate-400 mt-0.5">
                   Hardware & Building Materials
                 </p>
               </div>
             </Link>
 
-            <p className="text-slate-400 text-xs sm:text-sm leading-relaxed max-w-sm">
+            <p className="text-slate-300 text-xs sm:text-sm leading-relaxed max-w-sm">
               Your trusted retail destination for premium bathroom fittings, electrical components, plumbing pipes, overhead water tanks, and essential construction supplies.
             </p>
 
@@ -176,15 +176,15 @@ export default function Footer() {
 
           {/* Column 2: Quick Links (2 cols) */}
           <div className="lg:col-span-2 space-y-4">
-            <h4 className="text-white font-bold text-sm uppercase tracking-wider">Quick Links</h4>
+            <h3 className="text-white font-bold text-sm uppercase tracking-wider">Quick Links</h3>
             <ul className="space-y-2.5">
               {quickLinks.map((item) => (
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className="text-slate-400 hover:text-orange-400 transition-colors duration-200 text-xs sm:text-sm flex items-center gap-1.5"
+                    className="text-slate-300 hover:text-orange-400 transition-colors duration-200 text-xs sm:text-sm flex items-center gap-1.5"
                   >
-                    <ChevronRight className="w-3.5 h-3.5 text-slate-600" />
+                    <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
                     <span>{item.name}</span>
                   </Link>
                 </li>
@@ -194,15 +194,15 @@ export default function Footer() {
 
           {/* Column 3: Products (3 cols) */}
           <div className="lg:col-span-3 space-y-4">
-            <h4 className="text-white font-bold text-sm uppercase tracking-wider">Products</h4>
+            <h3 className="text-white font-bold text-sm uppercase tracking-wider">Products</h3>
             <ul className="space-y-2.5">
               {productCategories.map((cat) => (
                 <li key={cat.name}>
                   <Link
                     href={cat.href}
-                    className="text-slate-400 hover:text-orange-400 transition-colors duration-200 text-xs sm:text-sm flex items-center gap-1.5"
+                    className="text-slate-300 hover:text-orange-400 transition-colors duration-200 text-xs sm:text-sm flex items-center gap-1.5"
                   >
-                    <span className="w-1 h-1 rounded-full bg-orange-500"></span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-orange-500"></span>
                     <span>{cat.name}</span>
                   </Link>
                 </li>
@@ -212,7 +212,7 @@ export default function Footer() {
 
           {/* Column 4: Contact & Hours (3 cols) */}
           <div className="lg:col-span-3 space-y-4">
-            <h4 className="text-white font-bold text-sm uppercase tracking-wider">Contact & Store Info</h4>
+            <h3 className="text-white font-bold text-sm uppercase tracking-wider">Contact & Store Info</h3>
             
             <div className="space-y-3 text-xs sm:text-sm">
               <div className="flex items-start gap-2.5">
@@ -228,12 +228,12 @@ export default function Footer() {
               </div>
 
               <div className="flex items-center gap-2.5">
-                <MessageSquare className="w-4 h-4 text-emerald-400 shrink-0" />
+                <MessageSquare className="w-4 h-4 text-orange-400 shrink-0" />
                 <a 
                   href={`https://wa.me/919876543210`} 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="text-slate-300 hover:text-emerald-400 transition"
+                  className="text-slate-300 hover:text-orange-400 transition"
                 >
                   WhatsApp: +91 98765 43210
                 </a>
@@ -250,7 +250,7 @@ export default function Footer() {
                 <Clock className="w-3.5 h-3.5 text-orange-400" />
                 <span>Store Timings:</span>
               </div>
-              <div className="text-slate-400 pl-5">
+              <div className="text-slate-300 pl-5">
                 <div>Mon-Sat: {STORE_INFO.timings.weekdays}</div>
                 <div>Sunday: {STORE_INFO.timings.sunday}</div>
               </div>

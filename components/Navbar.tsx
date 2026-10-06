@@ -59,19 +59,19 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
   return (
     <header className="sticky top-0 z-40 w-full transition-all duration-300">
       {/* Top Slim Announcement Bar */}
-      <div className="bg-[#0B192C] text-slate-200 text-xs py-2 px-4 border-b border-slate-800">
+      <div className="bg-[#0B192C] text-slate-300 text-xs py-2.5 px-4 border-b border-slate-800">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
           <div className="flex items-center gap-2 tracking-wide font-medium text-slate-300">
-            <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span className="inline-block w-2 h-2 rounded-full bg-orange-500"></span>
             <span>{STORE_INFO.tagline}</span>
           </div>
           <div className="hidden md:flex items-center gap-6 text-slate-300 text-xs">
             <span className="flex items-center gap-1.5">
               <span className="text-orange-400 font-semibold">Dealer:</span> Santé Bath Fittings
             </span>
-            <span className="text-slate-500">|</span>
-            <span className="flex items-center gap-1.5">
-              <span className="text-emerald-400 font-semibold">Hours:</span> Mon-Sat 8AM-9PM • Sun 8AM-6:30PM
+            <span className="text-slate-600">|</span>
+            <span className="flex items-center gap-1.5 text-slate-300">
+              <span className="text-slate-200 font-semibold">Hours:</span> Mon-Sat 8AM-9PM • Sun 8AM-6:30PM
             </span>
           </div>
         </div>
@@ -81,8 +81,8 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
       <nav
         className={`w-full transition-all duration-300 ${
           isScrolled
-            ? 'bg-white/95 backdrop-blur-md shadow-md py-3.5 border-b border-slate-100'
-            : 'bg-white py-4 border-b border-slate-100'
+            ? 'bg-white/95 backdrop-blur-md shadow-sm py-3.5 border-b border-slate-200'
+            : 'bg-white py-4 border-b border-slate-200'
         }`}
       >
         <div className="max-w-7xl mx-auto px-2.5 sm:px-6 lg:px-8 flex items-center justify-between gap-1.5 sm:gap-2">
@@ -103,19 +103,19 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
               href="/" 
               className="flex items-center gap-1.5 sm:gap-3 group focus:outline-none min-w-0"
             >
-              <div className="w-8 h-8 sm:w-11 sm:h-11 rounded-lg sm:rounded-xl bg-gradient-to-br from-[#0B192C] to-[#1E3E62] flex items-center justify-center text-white shadow-md shadow-slate-900/10 group-hover:scale-105 transition-transform duration-300 shrink-0">
+              <div className="w-8 h-8 sm:w-11 sm:h-11 rounded-lg sm:rounded-xl bg-[#0B192C] flex items-center justify-center text-white shadow-sm shrink-0">
                 <Building2 className="w-4 h-4 sm:w-6 sm:h-6 text-orange-400" />
               </div>
               <div className="flex flex-col justify-center min-w-0">
                 <div className="flex items-center whitespace-nowrap leading-none">
-                  <span className="font-extrabold text-[13px] xs:text-[15px] sm:text-xl tracking-tight text-[#0B192C]">
+                  <span className="font-extrabold text-sm xs:text-base sm:text-xl tracking-tight text-[#0B192C]">
                     SRI KRISHNA
                   </span>
-                  <span className="font-bold sm:font-light text-[13px] xs:text-[15px] sm:text-xl tracking-wider text-orange-600 ml-1">
+                  <span className="font-bold sm:font-light text-sm xs:text-base sm:text-xl tracking-wider text-orange-600 ml-1">
                     TRADERS
                   </span>
                 </div>
-                <p className="text-[9px] sm:text-[10px] uppercase font-semibold tracking-wider text-slate-500 mt-1 hidden sm:block">
+                <p className="text-xs uppercase font-semibold tracking-wider text-slate-600 mt-1 hidden sm:block">
                   Hardware & Building Materials
                 </p>
               </div>
@@ -156,15 +156,15 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
                 <Phone className="w-3.5 h-3.5 text-orange-600" />
               </div>
               <div className="text-left">
-                <span className="block text-[10px] text-slate-500 font-normal">Call Project Desk</span>
-                <span>{STORE_INFO.phone}</span>
+                <span className="block text-xs text-slate-600 font-normal">Call Project Desk</span>
+                <span className="text-slate-900 font-medium">{STORE_INFO.phone}</span>
               </div>
             </a>
 
             {/* Orange CTA Button */}
             <button
               onClick={handleQuoteClick}
-              className="bg-orange-600 hover:bg-orange-700 text-white font-semibold text-sm px-5 py-2.5 rounded-xl shadow-md shadow-orange-600/20 hover:shadow-lg hover:shadow-orange-600/30 transition duration-200 cursor-pointer flex items-center gap-1.5"
+              className="bg-orange-600 hover:bg-orange-700 text-white font-semibold text-sm px-5 py-2.5 rounded-xl shadow-sm transition duration-200 cursor-pointer flex items-center gap-1.5"
             >
               <span>Enquiry</span>
               <ChevronRight className="w-4 h-4" />

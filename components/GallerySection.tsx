@@ -2,17 +2,26 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { GALLERY_DATA } from '@/data/storeData';
-import { Image as ImageIcon } from 'lucide-react';
+import { GALLERY_DATA, GalleryItem } from '@/data/storeData';
+import { Image as ImageIcon, Maximize2 } from 'lucide-react';
+import FullScreenGallerySlider from '@/components/FullScreenGallerySlider';
 
 export default function GallerySection() {
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const [isSliderOpen, setIsSliderOpen] = useState(false);
+  const [activeSliderIndex, setActiveSliderIndex] = useState(0);
 
   const categories = ['All', 'Bathroom Fittings', 'Pipes & Fittings', 'Electrical Goods', 'Water Tanks', 'Sanitary Ware', 'Hardware'];
 
   const filteredItems = selectedCategory === 'All'
     ? GALLERY_DATA
     : GALLERY_DATA.filter(item => item.category === selectedCategory);
+
+  const handleOpenSlider = (item: GalleryItem) => {
+    const idx = filteredItems.findIndex(i => i.id === item.id);
+    setActiveSliderIndex(idx >= 0 ? idx : 0);
+    setIsSliderOpen(true);
+  };
 
   return (
     <section id="gallery" className="py-16 sm:py-20 bg-slate-50 border-t border-slate-200/60">
@@ -53,10 +62,20 @@ export default function GallerySection() {
 
         {/* Gallery Grid (2-column on mobile, 3-column on desktop) */}
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-6">
-          {filteredItems.map((item) => (
+          {filteredItems.map((item, idx) => (
             <div
               key={item.id}
-              className="group relative h-36 sm:h-64 rounded-xl sm:rounded-2xl overflow-hidden bg-slate-200 border border-slate-200/80 shadow-xs hover:shadow-xl transition-all duration-300"
+              onClick={() => handleOpenSlider(item)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  handleOpenSlider(item);
+                }
+              }}
+              className="group relative h-36 sm:h-64 rounded-xl sm:rounded-2xl overflow-hidden bg-slate-200 border border-slate-200/80 shadow-xs hover:shadow-xl transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-orange-500"
+              aria-label={`View full-screen ${item.title}`}
             >
               <Image
                 src={item.image}
@@ -70,6 +89,11 @@ export default function GallerySection() {
               {/* Category Pill */}
               <div className="absolute top-2 left-2 sm:top-3 sm:left-3 bg-white/95 backdrop-blur-xs text-slate-800 text-[8px] sm:text-[10px] font-bold px-1.5 sm:px-2.5 py-0.5 rounded sm:rounded-md max-w-[85%] truncate shadow-xs">
                 {item.category}
+              </div>
+
+              {/* Expand Icon on Hover */}
+              <div className="absolute top-2 right-2 sm:top-3 sm:right-3 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-black/40 group-hover:bg-orange-600 text-white backdrop-blur-xs flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-sm scale-90 group-hover:scale-100">
+                <Maximize2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               </div>
 
               {/* Text Bottom */}
@@ -87,6 +111,14 @@ export default function GallerySection() {
         </div>
 
       </div>
+
+      {/* Full Screen Gallery Slider Modal */}
+      <FullScreenGallerySlider
+        isOpen={isSliderOpen}
+        items={filteredItems}
+        initialIndex={activeSliderIndex}
+        onClose={() => setIsSliderOpen(false)}
+      />
     </section>
   );
 }

@@ -25,6 +25,8 @@ export interface Benefit {
   title: string;
   description: string;
   iconName: 'ShieldCheck' | 'Truck' | 'Zap' | 'Headphones' | 'Award' | 'Clock';
+  detailedDescription: string;
+  points: string[];
 }
 
 export interface Service {
@@ -41,6 +43,8 @@ export interface GalleryItem {
   title: string;
   category: string;
   image: string;
+  description?: string;
+  badge?: string;
 }
 
 export const CATEGORIES_DATA: Category[] = [
@@ -196,25 +200,57 @@ export const BENEFITS_DATA: Benefit[] = [
     id: "ben-1",
     title: "Quality Products",
     description: "Carefully selected products from trusted brands and certified manufacturers.",
-    iconName: "ShieldCheck"
+    iconName: "ShieldCheck",
+    detailedDescription: "Carefully selected construction and home-improvement products from trusted brands and certified manufacturers.",
+    points: [
+      "Reliable and quality-tested products",
+      "Trusted brands and manufacturers",
+      "Suitable for residential and commercial projects",
+      "Practical product guidance",
+      "Quality-focused sourcing"
+    ]
   },
   {
     id: "ben-2",
     title: "On-Site Delivery",
     description: "Convenient delivery directly to your construction site, workshop, or home.",
-    iconName: "Truck"
+    iconName: "Truck",
+    detailedDescription: "Convenient delivery directly to your construction site, workshop, or home.",
+    points: [
+      "Direct delivery to your location",
+      "Convenient scheduling",
+      "Suitable for project and bulk requirements",
+      "Safe and reliable handling",
+      "Saves time and effort"
+    ]
   },
   {
     id: "ben-3",
     title: "Quick Purchase",
     description: "Easy product identification, instant stock check, and fast order fulfillment.",
-    iconName: "Zap"
+    iconName: "Zap",
+    detailedDescription: "Easy product identification, instant stock checking, and fast order fulfillment.",
+    points: [
+      "Quick product identification",
+      "Fast stock availability checking",
+      "Simple ordering process",
+      "Faster order fulfillment",
+      "Support for urgent project requirements"
+    ]
   },
   {
     id: "ben-4",
     title: "Trusted Service",
     description: "Helpful, practical guidance and dedicated support for all your project requirements.",
-    iconName: "Headphones"
+    iconName: "Headphones",
+    detailedDescription: "Helpful, practical guidance and dedicated support for all your project requirements.",
+    points: [
+      "Friendly customer support",
+      "Product selection guidance",
+      "Project requirement assistance",
+      "Transparent communication",
+      "Support before and after purchase"
+    ]
   }
 ];
 
@@ -248,39 +284,59 @@ export const SERVICES_DATA: Service[] = [
 export const GALLERY_DATA: GalleryItem[] = [
   {
     id: "gal-1",
-    title: "Sri Krishna Traders Storefront & Aisles",
-    category: "Store & Inventory",
+    title: "Sri Krishna Traders Main Showroom & Store Aisles",
+    category: "Store Showroom",
+    badge: "Open 7 Days",
+    description: "Organized inventory aisles stocked with branded plumbing fixtures, electrical essentials, and premium hardware.",
     image: "/images/store-interior.png"
   },
   {
     id: "gal-2",
-    title: "Plumbing & CPVC Stocks",
-    category: "Pipes & Fittings",
-    image: "https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=800&q=80"
+    title: "Santé Luxury Bath Fittings & Chrome Showroom",
+    category: "Bathroom Fittings",
+    badge: "Authorized Santé Dealer",
+    description: "Single lever brass mixers, rain showers, designer health faucets, and luxury bath collections on live display.",
+    image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1920&q=85"
   },
   {
     id: "gal-3",
-    title: "Electrical Section & Wiring",
-    category: "Electrical Goods",
-    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80"
+    title: "Heavy-Duty CPVC & High-Pressure Plumbing Lines",
+    category: "Pipes & Fittings",
+    badge: "ISI Certified",
+    description: "Hot & cold SDR-11 CPVC pipes, brass transition fittings, leak-proof ball valves, and industrial drainage systems.",
+    image: "https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=1920&q=85"
   },
   {
     id: "gal-4",
-    title: "Overhead Storage Yard",
-    category: "Water Tanks",
-    image: "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&w=800&q=80"
+    title: "FR-LSH Industrial Copper Wiring & Modular Switch Gear",
+    category: "Electrical Goods",
+    badge: "Fire Retardant",
+    description: "100% electrolytic multi-strand copper cables, circuit breakers, modular switches, and high-performance LED lighting.",
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1920&q=85"
   },
   {
     id: "gal-5",
-    title: "Modern Sanitary Displays",
-    category: "Sanitary Ware",
-    image: "https://images.unsplash.com/photo-1520699049698-acd2fccb8cc8?auto=format&fit=crop&w=800&q=80"
+    title: "Multi-Layer Anti-Bacterial Overhead Water Tanks",
+    category: "Water Storage",
+    badge: "Ready Dispatch Yard",
+    description: "UV-stabilized 4-layer virgin plastic overhead water tanks, underground sumps, and automatic float level controllers.",
+    image: "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&w=1920&q=85"
   },
   {
     id: "gal-6",
-    title: "Hardware & Fasteners Inventory",
-    category: "Hardware",
-    image: "https://images.unsplash.com/photo-1581783342308-f792dbdd27c5?auto=format&fit=crop&w=800&q=80"
+    title: "Designer Ceramic Tabletop Basins & Water Closets",
+    category: "Sanitary Ware",
+    badge: "Premium Vitreous Glaze",
+    description: "Nanotech stain-resistant countertop wash basins, rimless wall-hung closets, and contemporary sanitary suites.",
+    image: "https://images.unsplash.com/photo-1520699049698-acd2fccb8cc8?auto=format&fit=crop&w=1920&q=85"
+  },
+  {
+    id: "gal-7",
+    title: "Stainless Steel Fasteners & Heavy Door Hardware",
+    category: "Hardware Essentials",
+    badge: "SS 304 Grade",
+    description: "High-tensile fasteners, concealed mortise door locks, stainless steel hinges, and professional jobsite tools.",
+    image: "https://images.unsplash.com/photo-1581783342308-f792dbdd27c5?auto=format&fit=crop&w=1920&q=85"
   }
 ];
 

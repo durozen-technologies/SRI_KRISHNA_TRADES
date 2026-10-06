@@ -6,10 +6,7 @@ import CategoriesSection from '@/components/CategoriesSection';
 import WhyChooseUs from '@/components/WhyChooseUs';
 import FeaturedProducts from '@/components/FeaturedProducts';
 import BrandsSection from '@/components/BrandsSection';
-import ProjectShowcase from '@/components/ProjectShowcase';
 import About from '@/components/About';
-import DeliverySection from '@/components/DeliverySection';
-import GallerySection from '@/components/GallerySection';
 import LocationSection from '@/components/LocationSection';
 import CTASection from '@/components/CTASection';
 import { useQuote } from '@/context/QuoteContext';
@@ -36,17 +33,8 @@ export default function HomePage() {
       {/* Dedicated Santé Bath Fittings Brand Section */}
       <BrandsSection />
 
-      {/* Project Deliveries & Fulfillment Showcase */}
-      <ProjectShowcase onOpenQuote={() => openQuote()} />
-
       {/* About Section */}
       <About />
-
-      {/* Made for Easy, Practical Shopping (Delivery & Services) */}
-      <DeliverySection onOpenQuote={() => openQuote()} />
-
-      {/* Store & Inventory Gallery */}
-      <GallerySection />
 
       {/* Store Location, Hours & Map Section */}
       <LocationSection />

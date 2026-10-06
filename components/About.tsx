@@ -48,9 +48,9 @@ export default function About() {
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-900/20 to-transparent"></div>
                 
                 <div className="absolute bottom-6 left-6 right-6 text-white">
-                  <div className="bg-orange-600/95 backdrop-blur-xs p-4 rounded-2xl shadow-lg border border-orange-400/30">
-                    <p className="text-xs uppercase font-bold tracking-widest text-orange-200">Our Commitment</p>
-                    <p className="font-bold text-sm sm:text-base mt-1 text-white">
+                  <div className="bg-[#0B192C]/95 p-4 rounded-2xl shadow-md border border-slate-700">
+                    <p className="text-xs uppercase font-bold tracking-wider text-orange-400">Our Commitment</p>
+                    <p className="font-semibold text-sm sm:text-base mt-1 text-white leading-snug">
                       "Uncompromising product durability for residential & commercial building projects."
                     </p>
                   </div>
@@ -58,13 +58,13 @@ export default function About() {
               </div>
 
               {/* Floating Stat Pill */}
-              <div className="absolute -top-4 -left-2 sm:-left-4 bg-[#0B192C] text-white p-3.5 rounded-2xl shadow-xl border border-slate-700 flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-orange-500/20 text-orange-400 flex items-center justify-center font-bold">
+              <div className="absolute -top-4 -left-2 sm:-left-4 bg-[#0B192C] text-white p-3.5 rounded-2xl shadow-md border border-slate-700 flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-slate-800 text-orange-400 flex items-center justify-center font-bold">
                   <Award className="w-5 h-5" />
                 </div>
                 <div>
                   <div className="text-xs font-bold">100% Genuine</div>
-                  <div className="text-[10px] text-slate-300">Verified Brands & Stock</div>
+                  <div className="text-xs text-slate-300">Verified Brands & Stock</div>
                 </div>
               </div>
 
@@ -73,7 +73,7 @@ export default function About() {
 
           {/* Right Column: Narrative & Values */}
           <div className="lg:col-span-7 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-200/80 text-slate-800 text-xs font-bold uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-200 text-slate-800 text-xs font-bold uppercase tracking-wider">
               <span>About Sri Krishna Traders</span>
             </div>
 
@@ -81,26 +81,26 @@ export default function About() {
               Building Better Spaces with Quality Products
             </h2>
 
-            <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
+            <p className="text-slate-700 text-base sm:text-lg leading-relaxed max-w-2xl">
               Sri Krishna Traders is a trusted retail destination for bathroom and sanitary ware, electrical goods, plumbing products, pipes, water storage solutions and essential building materials.
             </p>
 
-            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-2xl">
               Whether you are an individual homeowner upgrading a bathroom, a master plumber looking for precision pressure valves, or a contractor executing a multi-story build, our catalog is curated to deliver unmatched longevity, safety, and performance.
             </p>
 
             {/* Highlights Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
               {highlights.map((item, idx) => {
                 const Icon = item.icon;
                 return (
-                  <div key={idx} className="bg-white p-4 rounded-xl border border-slate-200/80 shadow-xs flex items-start gap-3">
+                  <div key={idx} className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-start gap-3">
                     <div className="w-9 h-9 rounded-lg bg-orange-50 text-orange-600 flex items-center justify-center shrink-0 mt-0.5">
                       <Icon className="w-4 h-4" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-slate-900 text-sm">{item.title}</h4>
-                      <p className="text-xs text-slate-500 mt-1 leading-normal">{item.desc}</p>
+                      <h3 className="font-bold text-slate-900 text-sm">{item.title}</h3>
+                      <p className="text-xs text-slate-600 mt-1 leading-normal">{item.desc}</p>
                     </div>
                   </div>
                 );
