@@ -238,69 +238,6 @@ export default function GalleryPage() {
       </header>
 
       {/* ========================================================================= */}
-      {/* 2b. CONDENSED MOBILE INFO BLOCK (Upper Right Quadrant, Below Header)      */}
-      {/* ========================================================================= */}
-      <div className="sm:hidden absolute top-16 right-3 z-30 max-w-[215px] xs:max-w-[245px] bg-black/65 backdrop-blur-md border border-white/20 rounded-xl p-2.5 shadow-2xl space-y-1.5 text-left pointer-events-auto animate-fade-in">
-        {/* Badges & Counter */}
-        <div className="flex items-center justify-between gap-1">
-          <span className="px-1.5 py-0.5 rounded bg-orange-600 text-white text-[9px] font-bold uppercase tracking-wide">
-            {currentItem.category}
-          </span>
-          {currentItem.badge && (
-            <span className="px-1.5 py-0.5 rounded bg-white/15 text-slate-200 text-[9px] font-semibold truncate max-w-[80px]">
-              {currentItem.badge}
-            </span>
-          )}
-          <span className="font-mono text-[9px] font-bold text-orange-400 bg-white/10 px-1.5 py-0.5 rounded ml-auto tracking-wider">
-            {formattedIndex}/{formattedTotal}
-          </span>
-        </div>
-
-        {/* Compact Title */}
-        <h2 className="text-xs xs:text-[13px] font-extrabold text-white leading-tight line-clamp-2">
-          {currentItem.title}
-        </h2>
-
-        {/* Compact Description */}
-        {currentItem.description && (
-          <p className="text-[10px] text-slate-300 leading-snug line-clamp-2">
-            {currentItem.description}
-          </p>
-        )}
-
-        {/* Inquire CTA + Mini Arrow Navigation Controls */}
-        <div className="flex items-center justify-between gap-1.5 pt-1 border-t border-white/10">
-          <button
-            type="button"
-            onClick={() => openQuote(currentItem.category, currentItem.title)}
-            className="inline-flex items-center gap-1 bg-orange-600 hover:bg-orange-500 text-white font-bold text-[10px] px-2.5 py-1 rounded-md shadow-xs active:scale-95 transition-all"
-          >
-            <MessageSquare className="w-2.5 h-2.5" />
-            <span>Inquire Now</span>
-          </button>
-
-          <div className="flex items-center gap-1">
-            <button
-              type="button"
-              onClick={handlePrev}
-              className="p-1 rounded-md bg-white/15 hover:bg-white/30 text-white active:scale-90 transition-all"
-              aria-label="Previous slide"
-            >
-              <ChevronLeft className="w-3 h-3" />
-            </button>
-            <button
-              type="button"
-              onClick={handleNext}
-              className="p-1 rounded-md bg-white/15 hover:bg-white/30 text-white active:scale-90 transition-all"
-              aria-label="Next slide"
-            >
-              <ChevronRight className="w-3 h-3" />
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* ========================================================================= */}
       {/* 3. SIDE NAVIGATION ARROWS (Desktop)                                       */}
       {/* ========================================================================= */}
       <button
@@ -322,10 +259,71 @@ export default function GalleryPage() {
       </button>
 
       {/* ========================================================================= */}
-      {/* 4. CONTENT OVERLAY (Bottom-Left Desktop) & THUMBNAIL STRIP (Bottom)       */}
+      {/* 4. CONTENT OVERLAY (Bottom-Left) & THUMBNAIL STRIP (Bottom)               */}
       {/* ========================================================================= */}
-      <div className="relative z-20 w-full px-4 sm:px-8 pb-3 sm:pb-8 flex flex-col lg:flex-row items-center lg:items-end justify-between gap-3 sm:gap-6 pointer-events-auto">
+      <div className="relative z-20 w-full px-3.5 sm:px-8 pb-3 sm:pb-8 flex flex-col lg:flex-row items-start lg:items-end justify-between gap-2.5 sm:gap-6 pointer-events-auto">
         
+        {/* Compact Mobile Info Block (Positioned at Bottom-Left / Left-Down) */}
+        <div className="sm:hidden self-start max-w-[210px] xs:max-w-[230px] bg-black/70 backdrop-blur-md border border-white/20 rounded-xl p-2 xs:p-2.5 shadow-2xl space-y-1 text-left animate-fade-in mb-1">
+          {/* Badges & Counter */}
+          <div className="flex items-center justify-between gap-1">
+            <span className="px-1.5 py-0.5 rounded bg-orange-600 text-white text-[9px] font-bold uppercase tracking-wide">
+              {currentItem.category}
+            </span>
+            {currentItem.badge && (
+              <span className="px-1.5 py-0.5 rounded bg-white/15 text-slate-200 text-[9px] font-semibold truncate max-w-[70px]">
+                {currentItem.badge}
+              </span>
+            )}
+            <span className="font-mono text-[9px] font-bold text-orange-400 bg-white/10 px-1.5 py-0.5 rounded ml-auto tracking-wider">
+              {formattedIndex}/{formattedTotal}
+            </span>
+          </div>
+
+          {/* Compact Title */}
+          <h2 className="text-[11px] xs:text-xs font-bold text-white leading-tight line-clamp-2">
+            {currentItem.title}
+          </h2>
+
+          {/* Compact Description */}
+          {currentItem.description && (
+            <p className="text-[9.5px] text-slate-300 leading-snug line-clamp-1">
+              {currentItem.description}
+            </p>
+          )}
+
+          {/* Inquire CTA + Mini Arrow Navigation Controls */}
+          <div className="flex items-center justify-between gap-1 pt-1 border-t border-white/10">
+            <button
+              type="button"
+              onClick={() => openQuote(currentItem.category, currentItem.title)}
+              className="inline-flex items-center gap-1 bg-orange-600 hover:bg-orange-500 text-white font-bold text-[9px] px-2 py-0.5 rounded shadow-xs active:scale-95 transition-all"
+            >
+              <MessageSquare className="w-2.5 h-2.5" />
+              <span>Inquire Now</span>
+            </button>
+
+            <div className="flex items-center gap-1">
+              <button
+                type="button"
+                onClick={handlePrev}
+                className="p-1 rounded bg-white/15 hover:bg-white/30 text-white active:scale-90 transition-all"
+                aria-label="Previous slide"
+              >
+                <ChevronLeft className="w-2.5 h-2.5" />
+              </button>
+              <button
+                type="button"
+                onClick={handleNext}
+                className="p-1 rounded bg-white/15 hover:bg-white/30 text-white active:scale-90 transition-all"
+                aria-label="Next slide"
+              >
+                <ChevronRight className="w-2.5 h-2.5" />
+              </button>
+            </div>
+          </div>
+        </div>
+
         {/* Full Desktop Content Overlay Card (Hidden on mobile to preserve clear image view) */}
         <div className="hidden sm:block w-full max-w-xl bg-[#0B192C]/85 backdrop-blur-xl border border-white/15 rounded-3xl p-5 sm:p-7 shadow-2xl space-y-3.5 transition-all duration-300">
           
