@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import CategoriesSection from '@/components/CategoriesSection';
 import FeaturedProducts from '@/components/FeaturedProducts';
 import BrandsSection from '@/components/BrandsSection';
@@ -11,20 +11,37 @@ import { useRouter } from 'next/navigation';
 export default function ProductsPage() {
   const { openQuote, openProductDetail } = useQuote();
   const router = useRouter();
+  const [selectedCategory, setSelectedCategory] = useState<string | undefined>();
+  const [selectedBrand, setSelectedBrand] = useState<string | undefined>();
+
+  const handleCategorySelect = (categorySlug: string) => {
+    setSelectedCategory(categorySlug);
+    setSelectedBrand(undefined);
+    const elem = document.getElementById('products');
+    if (elem) elem.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleBrandSelect = (brandSlug: string) => {
+    setSelectedBrand(brandSlug);
+    setSelectedCategory(undefined);
+    const elem = document.getElementById('products');
+    if (elem) elem.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <>
       {/* Product Categories */}
-      <CategoriesSection onSelectCategory={() => {
-        const elem = document.getElementById('products');
-        if (elem) elem.scrollIntoView({ behavior: 'smooth' });
-      }} />
+      <CategoriesSection onSelectCategory={handleCategorySelect} />
 
-      {/* Featured Products Catalog with Category Filtering */}
-      <FeaturedProducts onEnquireProduct={(prod) => openProductDetail(prod)} />
+      {/* Featured Products Catalog with Category & Brand Filtering */}
+      <FeaturedProducts 
+        onEnquireProduct={(prod) => openProductDetail(prod)}
+        selectedCategoryFilter={selectedCategory}
+        selectedBrandFilter={selectedBrand}
+      />
 
-      {/* Official Santé Dealer Showcase */}
-      <BrandsSection />
+      {/* Authorized Brands Showcase: Havells, Crompton, Finolex, V-Guard, RR Kābel, Kundan */}
+      <BrandsSection onSelectBrandFilter={handleBrandSelect} />
 
       {/* Call To Action */}
       <CTASection
@@ -34,3 +51,4 @@ export default function ProductsPage() {
     </>
   );
 }
+

@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
 import { Star, MessageSquare } from 'lucide-react';
 
 interface Testimonial {
@@ -10,7 +9,8 @@ interface Testimonial {
   role: string;
   review: string;
   rating: number;
-  avatar: string;
+  initials: string;
+  badgeBg: string;
 }
 
 const TESTIMONIALS_DATA: Testimonial[] = [
@@ -18,9 +18,10 @@ const TESTIMONIALS_DATA: Testimonial[] = [
     id: 't-1',
     name: 'Rajesh Sharma',
     role: 'Homeowner, Renovation Project',
-    review: 'Purchased all our Santé bath fittings and CPVC plumbing pipes here. The team explained exact pipe fittings and delivered directly to our site on the same afternoon.',
+    review: 'Purchased all our bathroom fittings and CPVC plumbing pipes here. The team explained exact pipe fittings and delivered directly to our site on the same afternoon.',
     rating: 5,
-    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80'
+    initials: 'RS',
+    badgeBg: 'bg-orange-600 text-white'
   },
   {
     id: 't-2',
@@ -28,7 +29,8 @@ const TESTIMONIALS_DATA: Testimonial[] = [
     role: 'Civil Contractor',
     review: 'Sri Krishna Traders is our primary material supplier for plumbing, water storage tanks, and electrical wiring. Transparent wholesale rates and reliable stock.',
     rating: 5,
-    avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80'
+    initials: 'AV',
+    badgeBg: 'bg-[#0B192C] text-white'
   },
   {
     id: 't-3',
@@ -36,7 +38,8 @@ const TESTIMONIALS_DATA: Testimonial[] = [
     role: 'Interior Architect',
     review: 'Their bathroom showroom display has gorgeous designer faucets and modern basin options. Customer support is prompt and very well organized.',
     rating: 5,
-    avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80'
+    initials: 'PI',
+    badgeBg: 'bg-blue-700 text-white'
   }
 ];
 
@@ -81,18 +84,12 @@ export default function TestimonialsSection() {
 
               {/* User Avatar & Info */}
               <div className="pt-4 mt-4 border-t border-slate-100 flex items-center gap-3">
-                <div className="relative w-10 h-10 rounded-full overflow-hidden bg-slate-200 shrink-0">
-                  <Image
-                    src={t.avatar}
-                    alt={t.name}
-                    fill
-                    sizes="40px"
-                    className="object-cover"
-                  />
+                <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-xs shrink-0 shadow-xs ${t.badgeBg}`}>
+                  {t.initials}
                 </div>
                 <div>
                   <h4 className="font-bold text-slate-900 text-xs sm:text-sm">{t.name}</h4>
-                  <p className="text-[11px] text-slate-500">{t.role}</p>
+                  <p className="text-xs text-slate-600">{t.role}</p>
                 </div>
               </div>
             </div>

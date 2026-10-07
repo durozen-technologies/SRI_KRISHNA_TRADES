@@ -34,7 +34,7 @@ export default function CategoryCard({ category, onSelectCategory }: CategoryCar
           alt={category.name}
           fill
           sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 33vw"
-          className="object-cover"
+          className={category.image.includes('water-heater') || category.image.includes('fan') ? "object-contain p-2.5 sm:p-3.5 group-hover:scale-105 transition-transform duration-300" : "object-cover group-hover:scale-105 transition-transform duration-300"}
         />
         
         {/* Subtle overlay gradient */}
@@ -78,10 +78,10 @@ export default function CategoryCard({ category, onSelectCategory }: CategoryCar
         </div>
 
         {/* Card Footer: Explore Link with circular arrow */}
-        <div className="pt-2 flex items-center justify-between text-xs sm:text-sm font-semibold text-slate-700 group-hover:text-orange-600 transition-colors">
+        <div className="pt-2 flex items-center justify-between text-xs sm:text-sm font-semibold text-slate-700 group-hover:text-orange-700 transition-colors">
           <span>Explore</span>
-          <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full border border-slate-200 group-hover:border-orange-600 group-hover:bg-orange-600 group-hover:text-white flex items-center justify-center text-slate-600 transition-all duration-200">
-            <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 group-hover:translate-x-0.5 transition-transform" />
+          <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full border border-slate-200 group-hover:border-orange-600 group-hover:bg-orange-600 flex items-center justify-center text-slate-700 group-hover:text-white transition-all duration-200">
+            <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-slate-700 group-hover:text-white group-hover:translate-x-0.5 transition-all" />
           </div>
         </div>
       </div>

@@ -9,7 +9,7 @@ export default function About() {
     {
       icon: ShieldCheck,
       title: "Authorized Dealer",
-      desc: "Dedicated dealer for Santé Bath Fittings & certified electrical/plumbing brands."
+      desc: "Authorized partner for Havells, Crompton, V-Guard, Finolex Pipes & RR Kābel with 100% genuine brand warranty."
     },
     {
       icon: Building,
@@ -39,27 +39,39 @@ export default function About() {
             <div className="relative mx-auto max-w-md lg:max-w-none">
               <div className="relative rounded-3xl overflow-hidden shadow-xl border-4 border-white bg-slate-900 aspect-[4/5]">
                 <Image
-                  src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1000&q=80"
-                  alt="Sri Krishna Traders Building & Hardware Quality"
+                  src="/images/store-interior.png"
+                  alt="Sri Krishna Traders Showroom & Comprehensive Material Inventory"
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover"
+                  className="object-cover object-center brightness-[1.12] contrast-[1.06]"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-900/20 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-900/25 to-transparent"></div>
                 
-                <div className="absolute bottom-6 left-6 right-6 text-white">
-                  <div className="bg-[#0B192C]/95 p-4 rounded-2xl shadow-md border border-slate-700">
-                    <p className="text-xs uppercase font-bold tracking-wider text-orange-400">Our Commitment</p>
-                    <p className="font-semibold text-sm sm:text-base mt-1 text-white leading-snug">
-                      "Uncompromising product durability for residential & commercial building projects."
-                    </p>
-                  </div>
+                <div className="absolute bottom-5 left-5 right-5 text-white">
+                  <p className="text-xs uppercase font-bold tracking-wider text-orange-400">Our Showroom & Stock</p>
+                  <p className="font-semibold text-sm sm:text-base mt-1 text-slate-100 leading-snug">
+                    "Authentic Havells, Crompton, Finolex & RR Kābel inventory ready for direct pickup & on-site dispatch."
+                  </p>
+                </div>
+              </div>
+
+              {/* Secondary Floating Mini Showcase */}
+              <div className="absolute -bottom-4 -right-2 sm:-right-4 w-28 sm:w-36 aspect-[4/3] rounded-2xl overflow-hidden shadow-lg border-2 border-white bg-slate-900 hidden xs:block">
+                <Image
+                  src="/images/store-pvc-bends-shelving.jpg"
+                  alt="Finolex & PVC Heavy Fittings Shelving"
+                  fill
+                  sizes="150px"
+                  className="object-cover brightness-[1.08] contrast-[1.04]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-1.5">
+                  <span className="text-[9px] font-bold text-white tracking-tight">Plumbing Stock</span>
                 </div>
               </div>
 
               {/* Floating Stat Pill */}
-              <div className="absolute -top-4 -left-2 sm:-left-4 bg-[#0B192C] text-white p-3.5 rounded-2xl shadow-md border border-slate-700 flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-slate-800 text-orange-400 flex items-center justify-center font-bold">
+              <div className="absolute -top-3 -left-2 sm:-left-4 bg-[#0B192C] text-white p-3 rounded-2xl shadow-md border border-slate-700 flex items-center gap-3 z-10">
+                <div className="w-9 h-9 rounded-xl bg-slate-800 text-orange-400 flex items-center justify-center font-bold">
                   <Award className="w-5 h-5" />
                 </div>
                 <div>
@@ -81,26 +93,26 @@ export default function About() {
               Building Better Spaces with Quality Products
             </h2>
 
-            <p className="text-slate-700 text-base sm:text-lg leading-relaxed max-w-2xl">
+            <p className="text-slate-700 text-base sm:text-lg leading-relaxed max-w-xl">
               Sri Krishna Traders is a trusted retail destination for bathroom and sanitary ware, electrical goods, plumbing products, pipes, water storage solutions and essential building materials.
             </p>
 
-            <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-2xl">
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-xl">
               Whether you are an individual homeowner upgrading a bathroom, a master plumber looking for precision pressure valves, or a contractor executing a multi-story build, our catalog is curated to deliver unmatched longevity, safety, and performance.
             </p>
 
-            {/* Highlights Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+            {/* Highlights Grid - Flat Clean List */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 border-t border-slate-200/80">
               {highlights.map((item, idx) => {
                 const Icon = item.icon;
                 return (
-                  <div key={idx} className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-start gap-3">
-                    <div className="w-9 h-9 rounded-lg bg-orange-50 text-orange-600 flex items-center justify-center shrink-0 mt-0.5">
+                  <div key={idx} className="flex items-start gap-3 py-2">
+                    <div className="w-8 h-8 rounded-lg bg-orange-100/80 text-orange-700 flex items-center justify-center shrink-0 mt-0.5 border border-orange-200/60">
                       <Icon className="w-4 h-4" />
                     </div>
                     <div>
                       <h3 className="font-bold text-slate-900 text-sm">{item.title}</h3>
-                      <p className="text-xs text-slate-600 mt-1 leading-normal">{item.desc}</p>
+                      <p className="text-xs text-slate-600 mt-0.5 leading-relaxed">{item.desc}</p>
                     </div>
                   </div>
                 );

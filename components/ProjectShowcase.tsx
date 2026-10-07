@@ -17,10 +17,10 @@ const SUPPLIES_DATA: ProjectSupply[] = [
   {
     id: 'supp-1',
     title: 'Luxury Villa Sanitary & CPVC Supply',
-    type: 'Santé Fittings & CPVC',
+    type: 'Brass Fittings & CPVC',
     location: 'Greenfield Enclave',
-    materials: 'Complete Santé Bath Suite & High-Pressure Plumbing Lines',
-    image: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80'
+    materials: 'Complete Bath Suite & High-Pressure Plumbing Lines',
+    image: '/images/finolex-pipes-range.jpg'
   },
   {
     id: 'supp-2',
@@ -28,7 +28,7 @@ const SUPPLIES_DATA: ProjectSupply[] = [
     type: 'Overhead Tanks & Drainage',
     location: 'Royal Heights',
     materials: '4x 2000L Multi-Layer Tanks + Heavy Duty PVC Drainage',
-    image: 'https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&w=600&q=80'
+    image: '/images/store-plumbing-fittings-rack.jpg'
   },
   {
     id: 'supp-3',
@@ -36,7 +36,7 @@ const SUPPLIES_DATA: ProjectSupply[] = [
     type: 'FR-LSH Electrical Cables',
     location: 'Central Plaza',
     materials: 'Fire-Retardant Copper Cables & Modular Switch Gear',
-    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80'
+    image: '/images/havells-cable-range.jpg'
   },
   {
     id: 'supp-4',
@@ -44,7 +44,7 @@ const SUPPLIES_DATA: ProjectSupply[] = [
     type: 'Sanitary & Rain Showers',
     location: 'Shanti Nagar',
     materials: 'Ceramic Tabletop Basins & Concealed Diverter Valves',
-    image: 'https://images.unsplash.com/photo-1520699049698-acd2fccb8cc8?auto=format&fit=crop&w=600&q=80'
+    image: '/images/store-pvc-bends-shelving.jpg'
   }
 ];
 

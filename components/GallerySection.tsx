@@ -11,7 +11,7 @@ export default function GallerySection() {
   const [isSliderOpen, setIsSliderOpen] = useState(false);
   const [activeSliderIndex, setActiveSliderIndex] = useState(0);
 
-  const categories = ['All', 'Bathroom Fittings', 'Pipes & Fittings', 'Electrical Goods', 'Water Tanks', 'Sanitary Ware', 'Hardware'];
+  const categories = ['All', 'Store Showroom', 'Electrical Goods', 'Wires & Cables', 'Pipes & Fittings', 'Sanitary Ware'];
 
   const filteredItems = selectedCategory === 'All'
     ? GALLERY_DATA
@@ -38,13 +38,13 @@ export default function GallerySection() {
               Our Showroom & Inventory
             </h2>
             <p className="text-slate-600 text-sm sm:text-base mt-1">
-              Take a look at our organized aisles, showroom displays, and ready-to-dispatch yard inventory.
+              Take a look at our organized aisles, showroom displays, and ready-to-dispatch verified brand inventory.
             </p>
           </div>
 
           {/* Filter Pills */}
           <div className="flex items-center gap-1.5 overflow-x-auto pb-2 md:pb-0 scrollbar-none">
-            {categories.slice(0, 4).map((cat) => (
+            {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
@@ -74,7 +74,7 @@ export default function GallerySection() {
                   handleOpenSlider(item);
                 }
               }}
-              className="group relative h-36 sm:h-64 rounded-xl sm:rounded-2xl overflow-hidden bg-slate-200 border border-slate-200/80 shadow-xs hover:shadow-xl transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-orange-500"
+              className="group relative h-40 sm:h-64 rounded-xl sm:rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/80 shadow-xs hover:shadow-xl transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-orange-500"
               aria-label={`View full-screen ${item.title}`}
             >
               <Image
@@ -82,9 +82,13 @@ export default function GallerySection() {
                 alt={item.title}
                 fill
                 sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 33vw"
-                className="object-cover group-hover:scale-110 transition-transform duration-700"
+                className={`transition-transform duration-500 ${
+                  item.image.includes('fan') || item.image.includes('panel')
+                    ? 'object-contain p-2 sm:p-4 group-hover:scale-105'
+                    : 'object-cover group-hover:scale-110'
+                }`}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-900/20 to-transparent opacity-85 group-hover:opacity-95 transition-opacity"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-900/20 to-transparent opacity-85 group-hover:opacity-95 transition-opacity"></div>
               
               {/* Category Pill */}
               <div className="absolute top-2 left-2 sm:top-3 sm:left-3 bg-white/95 backdrop-blur-xs text-slate-800 text-[8px] sm:text-[10px] font-bold px-1.5 sm:px-2.5 py-0.5 rounded sm:rounded-md max-w-[85%] truncate shadow-xs">

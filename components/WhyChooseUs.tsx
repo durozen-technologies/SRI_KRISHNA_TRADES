@@ -57,7 +57,7 @@ export default function WhyChooseUs({ onContactClick }: WhyChooseUsProps) {
               </div>
 
               <h2 className="text-xl sm:text-3xl md:text-4xl font-extrabold leading-tight">
-                Your Trusted Partner for Every Project
+                Your Trusted Partner for Every Need
               </h2>
 
               <p className="text-slate-300 text-xs sm:text-base leading-relaxed">
@@ -92,38 +92,43 @@ export default function WhyChooseUs({ onContactClick }: WhyChooseUsProps) {
           </div>
 
           {/* Right Split: 4 Benefit Cards (2-column on mobile, 2-column on tablet/desktop) */}
-          <div className="lg:col-span-7 grid grid-cols-2 gap-2.5 sm:gap-6 items-stretch">
+          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 items-stretch">
             {BENEFITS_DATA.map((benefit) => {
               const IconComponent = iconMap[benefit.iconName] || ShieldCheck;
               return (
                 <div
                   key={benefit.id}
                   onClick={() => setSelectedBenefit(benefit)}
-                  className="bg-slate-50 hover:bg-white rounded-xl sm:rounded-2xl p-4 sm:p-7 border border-slate-200 hover:border-orange-300 hover:shadow-md transition-all duration-200 flex flex-col justify-between group cursor-pointer"
+                  className="bg-slate-50/80 hover:bg-white rounded-2xl p-5 sm:p-7 border border-slate-200/90 hover:border-orange-400 hover:shadow-md transition-all duration-200 flex flex-col justify-between group cursor-pointer"
                 >
-                  <div className="space-y-2 sm:space-y-3">
-                    <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-lg sm:rounded-xl bg-white border border-slate-200 text-[#0B192C] flex items-center justify-center transition-colors shrink-0 shadow-xs">
-                      <IconComponent className="w-4 h-4 sm:w-5 sm:h-5 text-orange-600" />
+                  <div className="space-y-2.5">
+                    {/* Integrated Inline Icon + Heading Layout */}
+                    <div className="flex items-center gap-3">
+                      <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-orange-100/80 text-orange-700 flex items-center justify-center shrink-0 border border-orange-200/60">
+                        <IconComponent className="w-4 h-4 sm:w-5 sm:h-5 text-orange-700" />
+                      </div>
+                      <h3 className="text-sm sm:text-base font-bold text-slate-900 leading-snug group-hover:text-orange-700 transition-colors">
+                        {benefit.title}
+                      </h3>
                     </div>
-                    <h3 className="text-xs sm:text-base font-bold text-slate-900 leading-snug">
-                      {benefit.title}
-                    </h3>
-                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+
+                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed pt-1">
                       {benefit.description}
                     </p>
                   </div>
 
-                  <div className="pt-2 sm:pt-4 mt-1 sm:mt-2 flex items-center text-xs font-semibold text-orange-600">
+                  <div className="pt-3 sm:pt-4 mt-2 flex items-center text-xs font-semibold text-orange-700">
                     <button
                       type="button"
                       onClick={(e) => {
                         e.stopPropagation();
                         setSelectedBenefit(benefit);
                       }}
-                      className="flex items-center gap-1 hover:underline text-left cursor-pointer focus:outline-none"
+                      className="flex items-center gap-1.5 hover:underline text-left cursor-pointer focus:outline-none"
                       aria-label={`Learn more about ${benefit.title}`}
                     >
-                      <span>Learn More →</span>
+                      <span>Explore details</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
                     </button>
                   </div>
                 </div>

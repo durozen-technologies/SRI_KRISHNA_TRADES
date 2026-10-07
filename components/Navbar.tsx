@@ -67,7 +67,7 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
           </div>
           <div className="hidden md:flex items-center gap-6 text-slate-300 text-xs">
             <span className="flex items-center gap-1.5">
-              <span className="text-orange-400 font-semibold">Dealer:</span> Santé Bath Fittings
+              <span className="text-orange-400 font-semibold">Authorized Brands:</span> Havells • Crompton • V-Guard • Finolex • RR Kābel
             </span>
             <span className="text-slate-600">|</span>
             <span className="flex items-center gap-1.5 text-slate-300">
@@ -146,7 +146,19 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
           </div>
 
           {/* Right Action Buttons (Desktop) */}
-          <div className="hidden sm:flex items-center gap-4">
+          <div className="hidden sm:flex items-center gap-3">
+            {/* WhatsApp Quick Link */}
+            <a
+              href={`https://wa.me/${STORE_INFO.whatsapp.replace(/[^0-9]/g, '')}?text=${encodeURIComponent('Hello Sri Krishna Traders, I have an enquiry regarding materials and pricing.')}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-xs font-semibold text-emerald-700 hover:text-emerald-800 py-2 px-3 rounded-xl bg-emerald-50 hover:bg-emerald-100/80 border border-emerald-200 transition"
+              title="Chat on WhatsApp"
+            >
+              <MessageSquare className="w-3.5 h-3.5 text-emerald-600" />
+              <span>WhatsApp</span>
+            </a>
+
             {/* Phone Quick Link */}
             <a
               href={`tel:${STORE_INFO.phone.replace(/\s+/g, '')}`}
@@ -207,7 +219,7 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
                   <div className="font-extrabold text-sm tracking-tight leading-none">
                     SRI KRISHNA <span className="text-orange-400">TRADERS</span>
                   </div>
-                  <div className="text-[9px] text-slate-400 mt-0.5">Hardware & Materials</div>
+                  <div className="text-xs text-slate-400 mt-0.5">Hardware & Materials</div>
                 </div>
               </div>
               <button
@@ -221,7 +233,7 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
 
             {/* Nav Links */}
             <div className="p-4 overflow-y-auto flex-1 space-y-1">
-              <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider px-3 mb-2">Navigation</p>
+              <p className="text-xs font-bold text-slate-400 uppercase tracking-wider px-3 mb-2">Navigation</p>
               {navLinks.map((link) => {
                 const isActive = pathname === link.href;
                 return (
@@ -243,9 +255,9 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
 
               {/* Dealership Pill in Drawer */}
               <div className="pt-3 mt-3 border-t border-slate-100 px-3">
-                <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-orange-600 bg-orange-50 px-2.5 py-1 rounded-md">
+                <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-orange-600 bg-orange-50 px-2.5 py-1 rounded-md">
                   <Award className="w-3.5 h-3.5" />
-                  Official Santé Dealer
+                  Havells • Crompton • V-Guard • Finolex • RR Kābel
                 </span>
               </div>
             </div>
@@ -260,7 +272,7 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
                   <Phone className="w-3.5 h-3.5" />
                 </div>
                 <div className="truncate">
-                  <div className="text-[10px] text-slate-500">Project Desk</div>
+                  <div className="text-xs text-slate-500">Project Desk</div>
                   <div className="text-xs font-bold text-slate-900 truncate">{STORE_INFO.phone}</div>
                 </div>
               </a>
@@ -275,7 +287,7 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
                   <MessageSquare className="w-3.5 h-3.5" />
                 </div>
                 <div>
-                  <div className="text-[10px] text-slate-500">WhatsApp Chat</div>
+                  <div className="text-xs text-slate-500">WhatsApp Chat</div>
                   <div className="text-xs font-bold text-emerald-600">Open Chat Now</div>
                 </div>
               </a>

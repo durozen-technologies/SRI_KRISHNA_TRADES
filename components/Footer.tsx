@@ -57,7 +57,7 @@ export default function Footer() {
               </div>
             </Link>
             <span className="text-[10px] font-semibold text-orange-400 bg-slate-800/90 px-2 py-0.5 rounded border border-slate-700">
-              Santé Dealer
+              Havells • Crompton • V-Guard • Finolex • RR Kābel
             </span>
           </div>
 
@@ -65,9 +65,9 @@ export default function Footer() {
           <div className="grid grid-cols-2 gap-x-6 gap-y-5 text-xs">
             {/* Quick Links Column */}
             <div className="space-y-2.5">
-              <h4 className="text-white font-bold text-xs uppercase tracking-wider pb-1 border-b border-slate-800">
+              <h3 className="text-white font-bold text-xs uppercase tracking-wider pb-1 border-b border-slate-800">
                 Quick Links
-              </h4>
+              </h3>
               <ul className="space-y-2">
                 {quickLinks.slice(0, 5).map((item) => (
                   <li key={item.name}>
@@ -84,9 +84,9 @@ export default function Footer() {
 
             {/* Products Column */}
             <div className="space-y-2.5">
-              <h4 className="text-white font-bold text-xs uppercase tracking-wider pb-1 border-b border-slate-800">
+              <h3 className="text-white font-bold text-xs uppercase tracking-wider pb-1 border-b border-slate-800">
                 Products
-              </h4>
+              </h3>
               <ul className="space-y-2">
                 {productCategories.slice(0, 5).map((cat) => (
                   <li key={cat.name}>
@@ -103,13 +103,13 @@ export default function Footer() {
 
             {/* Contact Us Column */}
             <div className="space-y-2 col-span-2 pt-2 border-t border-slate-800/80">
-              <h4 className="text-white font-bold text-xs uppercase tracking-wider">
+              <h3 className="text-white font-bold text-xs uppercase tracking-wider">
                 Contact Us
-              </h4>
-              <div className="grid grid-cols-2 gap-2 pt-1 text-[11px]">
+              </h3>
+              <div className="grid grid-cols-2 gap-2 pt-1 text-xs">
                 <a
                   href={`tel:${STORE_INFO.phone.replace(/\s+/g, '')}`}
-                  className="flex items-center gap-1.5 p-2 bg-slate-900/90 rounded-lg border border-slate-800 text-slate-200"
+                  className="flex items-center gap-1.5 p-2 bg-slate-900 rounded-lg border border-slate-800 text-slate-200 hover:text-white transition"
                 >
                   <Phone className="w-3.5 h-3.5 text-orange-400 shrink-0" />
                   <span className="truncate">{STORE_INFO.phone}</span>
@@ -118,13 +118,13 @@ export default function Footer() {
                   href={`https://wa.me/${STORE_INFO.whatsapp.replace(/[^0-9]/g, '')}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 p-2 bg-slate-900/90 rounded-lg border border-slate-800 text-emerald-400"
+                  className="flex items-center gap-1.5 p-2 bg-slate-900 rounded-lg border border-slate-800 text-orange-400 hover:text-orange-300 transition"
                 >
-                  <MessageSquare className="w-3.5 h-3.5 shrink-0" />
+                  <MessageSquare className="w-3.5 h-3.5 shrink-0 text-orange-400" />
                   <span>WhatsApp Chat</span>
                 </a>
               </div>
-              <div className="flex items-start gap-1.5 text-[11px] text-slate-400 pt-1">
+              <div className="flex items-start gap-1.5 text-xs text-slate-400 pt-1">
                 <MapPin className="w-3.5 h-3.5 text-orange-400 shrink-0 mt-0.5" />
                 <span className="line-clamp-1">{STORE_INFO.address}</span>
               </div>
@@ -132,12 +132,12 @@ export default function Footer() {
           </div>
 
           {/* Compact Store Hours & Copyright */}
-          <div className="pt-4 border-t border-slate-800 text-[11px] text-slate-400 space-y-1.5 text-center">
+          <div className="pt-4 border-t border-slate-800 text-xs text-slate-400 space-y-1.5 text-center">
             <div className="flex items-center justify-center gap-1.5 text-slate-300 font-medium">
-              <Clock className="w-3 h-3 text-orange-400" />
+              <Clock className="w-3.5 h-3.5 text-orange-400" />
               <span>Mon-Sat: 8AM-9PM • Sun: 8AM-6:30PM</span>
             </div>
-            <p className="text-slate-500 pt-1">© 2026 Sri Krishna Traders. All rights reserved.</p>
+            <p className="text-slate-400 pt-1">© 2026 Sri Krishna Traders. All rights reserved.</p>
           </div>
         </div>
       </div>
@@ -169,7 +169,7 @@ export default function Footer() {
 
             <div className="pt-2">
               <span className="inline-block px-3 py-1 bg-slate-800 text-orange-400 text-xs font-semibold rounded-lg border border-slate-700">
-                Official Santé Bath Fittings Dealer
+                Authorized Dealer: Havells • Crompton • V-Guard • Finolex • RR Kābel
               </span>
             </div>
           </div>

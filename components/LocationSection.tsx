@@ -11,14 +11,15 @@ export default function LocationSection() {
     window.open(`https://wa.me/${rawNumber}?text=${encodeURIComponent('Hello Sri Krishna Traders, I would like to visit the store / inquire about materials.')}`, '_blank');
   };
 
-  const mapUrl = `https://maps.google.com/?q=${encodeURIComponent('Sri Krishna Traders, Aayyampalayam 1-460, Tiruchengode - Namakkal - Trichy Road, Thummankurichi, Namakkal, Tamil Nadu 637003')}`;
+  const mapUrl = STORE_INFO.mapUrl;
+  const directionsUrl = STORE_INFO.directionsUrl;
 
   return (
     <section id="contact" className="py-16 sm:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 space-y-3">
+        <div className="text-center max-w-xl mx-auto mb-12 sm:mb-16 space-y-3">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-bold uppercase tracking-wider">
             <MapPin className="w-3.5 h-3.5 text-orange-600" />
             <span>Store Location & Timings</span>
@@ -26,7 +27,7 @@ export default function LocationSection() {
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0B192C] tracking-tight">
             Visit Sri Krishna Traders
           </h2>
-          <p className="text-slate-600 text-base sm:text-lg">
+          <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
             Stop by our retail counter or get in touch for instant material quotes and site deliveries.
           </p>
         </div>
@@ -36,11 +37,11 @@ export default function LocationSection() {
           {/* Store Info Cards (Left side) */}
           <div className="lg:col-span-6 space-y-6">
             
-            {/* Opening Hours Highlight Card */}
+            {/* Opening Hours Card */}
             <div className="bg-[#0B192C] text-white rounded-2xl p-6 sm:p-7 shadow-sm relative overflow-hidden">
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-2.5">
-                  <div className="w-9 h-9 rounded-xl bg-slate-800 text-orange-400 flex items-center justify-center">
+                  <div className="w-9 h-9 rounded-xl bg-slate-800 text-orange-400 flex items-center justify-center border border-slate-700">
                     <Clock className="w-5 h-5" />
                   </div>
                   <h3 className="font-bold text-lg text-white">Opening Hours</h3>
@@ -50,14 +51,15 @@ export default function LocationSection() {
                 </span>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-                <div className="bg-slate-800/90 p-4 rounded-xl border border-slate-700">
-                  <span className="block text-xs text-slate-300 font-medium">Monday – Saturday</span>
-                  <span className="text-base font-bold text-white mt-0.5 block">{STORE_INFO.timings.weekdays}</span>
+              {/* Integrated Schedule Rows */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-3 border-t border-slate-800">
+                <div className="space-y-0.5">
+                  <span className="block text-xs text-slate-400 font-medium">Monday – Saturday</span>
+                  <span className="text-base font-bold text-white block">{STORE_INFO.timings.weekdays}</span>
                 </div>
-                <div className="bg-slate-800/90 p-4 rounded-xl border border-slate-700">
-                  <span className="block text-xs text-slate-300 font-medium">Sunday</span>
-                  <span className="text-base font-bold text-white mt-0.5 block">{STORE_INFO.timings.sunday}</span>
+                <div className="space-y-0.5">
+                  <span className="block text-xs text-slate-400 font-medium">Sunday</span>
+                  <span className="text-base font-bold text-white block">{STORE_INFO.timings.sunday}</span>
                 </div>
               </div>
             </div>
@@ -136,7 +138,7 @@ export default function LocationSection() {
               alt="Store Map Location"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+              className="object-cover object-center transition-opacity duration-300"
             />
             
             {/* Subtle overlay for high contrast of badges and markers */}
@@ -149,7 +151,7 @@ export default function LocationSection() {
               </div>
               <div>
                 <div className="text-xs font-bold text-slate-900">Sri Krishna Traders Showroom</div>
-                <div className="text-[11px] text-slate-500">Namakkal - Trichy Road</div>
+                <div className="text-[11px] font-medium text-orange-600 font-mono">11°14&apos;43.0&quot;N 78°07&apos;58.2&quot;E</div>
               </div>
             </div>
 
@@ -173,8 +175,9 @@ export default function LocationSection() {
                 {STORE_INFO.timings.weekdays}
               </div>
               <button
-                onClick={() => {
-                  window.open(mapUrl, '_blank');
+                onClick={(e) => {
+                  e.stopPropagation();
+                  window.open(directionsUrl, '_blank');
                 }}
                 className="w-full sm:w-auto bg-[#0B192C] hover:bg-[#1E3E62] text-white text-xs font-semibold py-2.5 px-4 rounded-xl transition flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
               >

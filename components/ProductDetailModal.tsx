@@ -53,10 +53,17 @@ export default function ProductDetailModal({ product, onClose, onRequestQuote }:
                 alt={product.name}
                 fill
                 sizes="(max-width: 640px) 100vw, 50vw"
-                className="object-cover"
+                className={product.image.includes('fan') || product.image.includes('panel') ? 'object-contain p-4 bg-white' : 'object-cover'}
               />
               {product.brand && (
-                <div className="absolute top-3 left-3 bg-orange-600 text-white text-[11px] font-bold px-2.5 py-1 rounded shadow-sm">
+                <div className={`absolute top-3 left-3 text-xs font-bold px-3 py-1 rounded-lg shadow-sm ${
+                  product.brandSlug === 'havells' ? 'bg-red-600 text-white' :
+                  product.brandSlug === 'rr-kabel' ? 'bg-emerald-600 text-white' :
+                  product.brandSlug === 'crompton' ? 'bg-blue-600 text-white' :
+                  product.brandSlug === 'vguard' ? 'bg-amber-500 text-slate-950 font-extrabold' :
+                  product.brandSlug === 'finolex' ? 'bg-cyan-600 text-white' :
+                  product.brandSlug === 'kundan' ? 'bg-indigo-700 text-white' : 'bg-slate-900 text-white'
+                }`}>
                   {product.brand}
                 </div>
               )}

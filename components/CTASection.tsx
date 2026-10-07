@@ -14,7 +14,7 @@ export default function CTASection({ onOpenQuote, onContactClick }: CTASectionPr
     <section className="bg-[#0B192C] text-white py-16 sm:py-20 relative overflow-hidden border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative text-center">
         
-        <div className="max-w-3xl mx-auto space-y-6">
+        <div className="max-w-xl mx-auto space-y-6">
           
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-800 border border-slate-700 text-orange-400 text-xs font-bold uppercase tracking-wider">
             <Sparkles className="w-3.5 h-3.5" />
@@ -28,7 +28,7 @@ export default function CTASection({ onOpenQuote, onContactClick }: CTASectionPr
             </span>
           </h2>
 
-          <p className="text-slate-300 text-base sm:text-lg max-w-xl mx-auto leading-relaxed">
+          <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
             Find the right products for your home, construction or renovation project. Talk to our material specialists today.
           </p>
 
@@ -57,7 +57,7 @@ export default function CTASection({ onOpenQuote, onContactClick }: CTASectionPr
             </span>
             <span className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-orange-500"></span>
-              Authorized Santé Dealer
+              100% Genuine Certified Stock
             </span>
             <span className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-orange-500"></span>

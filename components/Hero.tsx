@@ -66,7 +66,7 @@ export default function Hero({ onOpenQuote }: HeroProps) {
                 priority
               />
               <div className="absolute bottom-1.5 left-1.5 right-1.5 text-center">
-                <span className="inline-block px-2 py-0.5 bg-slate-900/90 text-[11px] font-bold text-white rounded uppercase tracking-wider">
+                <span className="inline-block px-2 py-0.5 bg-slate-900/90 text-xs font-bold text-white rounded uppercase tracking-wider">
                   Storefront
                 </span>
               </div>

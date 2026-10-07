@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Hero from '@/components/Hero';
 import CategoriesSection from '@/components/CategoriesSection';
 import WhyChooseUs from '@/components/WhyChooseUs';
@@ -15,6 +15,13 @@ import { useRouter } from 'next/navigation';
 export default function HomePage() {
   const { openQuote, openProductDetail } = useQuote();
   const router = useRouter();
+  const [selectedBrand, setSelectedBrand] = useState<string | undefined>();
+
+  const handleBrandSelect = (brandSlug: string) => {
+    setSelectedBrand(brandSlug);
+    const elem = document.getElementById('products');
+    if (elem) elem.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <>
@@ -27,11 +34,14 @@ export default function HomePage() {
       {/* Split Why Choose Us Section */}
       <WhyChooseUs onContactClick={() => router.push('/contact')} />
 
-      {/* Featured Products with Category Tabs */}
-      <FeaturedProducts onEnquireProduct={(prod) => openProductDetail(prod)} />
+      {/* Featured Products with Category & Brand Tabs */}
+      <FeaturedProducts 
+        onEnquireProduct={(prod) => openProductDetail(prod)}
+        selectedBrandFilter={selectedBrand}
+      />
 
-      {/* Dedicated Santé Bath Fittings Brand Section */}
-      <BrandsSection />
+      {/* Authorized Brands Section: Havells, Crompton, Finolex, V-Guard, RR Kābel, Kundan */}
+      <BrandsSection onSelectBrandFilter={handleBrandSelect} />
 
       {/* About Section */}
       <About />
@@ -47,3 +57,4 @@ export default function HomePage() {
     </>
   );
 }
+

@@ -1,78 +1,213 @@
 'use client';
 
-import React from 'react';
-import { Award, ShieldCheck, Sparkles, Check, Droplets } from 'lucide-react';
+import React, { useState } from 'react';
+import { Award, ShieldCheck, Sparkles, Check, Droplets, Zap, Fan, Flame, Wrench } from 'lucide-react';
+import { BRANDS_DATA, Brand } from '@/data/storeData';
 
-export default function BrandsSection() {
+interface BrandsSectionProps {
+  onSelectBrandFilter?: (brandSlug: string) => void;
+}
+
+export default function BrandsSection({ onSelectBrandFilter }: BrandsSectionProps) {
+  const [selectedBrandSlug, setSelectedBrandSlug] = useState<string>('crompton');
+
+  const selectedBrand = BRANDS_DATA.find((b) => b.slug === selectedBrandSlug) || BRANDS_DATA[0];
+
+  const brandIcons: Record<string, any> = {
+    havells: Zap,
+    'rr-kabel': ShieldCheck,
+    finolex: Wrench,
+    crompton: Fan,
+    vguard: Flame,
+    kundan: Zap,
+  };
+
+  const handleBrandClick = (slug: string) => {
+    setSelectedBrandSlug(slug);
+  };
+
+  const handleExploreBrand = (slug: string) => {
+    if (onSelectBrandFilter) {
+      onSelectBrandFilter(slug);
+    }
+    const elem = document.getElementById('products');
+    if (elem) elem.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
-    <section id="brands" className="py-16 bg-slate-900 text-white relative overflow-hidden">
+    <section id="brands" className="py-16 sm:py-20 bg-[#07111E] text-white relative overflow-hidden">
       {/* Subtle backdrop pattern */}
       <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:16px_16px]"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800 text-orange-400 text-xs font-bold uppercase tracking-wider">
+        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12 space-y-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-800 text-orange-400 text-xs font-bold uppercase tracking-wider border border-slate-700">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>Authorized Dealership</span>
+            <span>Authorized Brands & Products</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight">
-            Quality Brands. Reliable Products.
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-white">
+            Industry-Leading Brands You Trust
           </h2>
-          <p className="text-slate-300 text-sm sm:text-base">
-            We partner with trusted manufacturing leaders to guarantee genuine build quality, warranties, and dependable performance.
+          <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+            Direct partnerships with India&apos;s leading manufacturers: Havells, RR Kābel, Finolex, Crompton, V-Guard, and Kundan Cable.
           </p>
         </div>
 
-        {/* Santé Bath Fittings Showcase Card */}
-        <div className="max-w-4xl mx-auto bg-slate-800 rounded-3xl p-8 sm:p-10 border border-slate-700 shadow-md relative">
-          <div className="flex flex-col md:flex-row items-center gap-8 justify-between">
+        {/* Brand Selection Cards Grid (Responsive auto-fit columns) */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5 sm:gap-3 mb-8">
+          {BRANDS_DATA.map((brand) => {
+            const Icon = brandIcons[brand.slug] || Award;
+            const isSelected = selectedBrand.slug === brand.slug;
+            return (
+              <button
+                key={brand.id}
+                onClick={() => handleBrandClick(brand.slug)}
+                className={`p-3 sm:p-3.5 rounded-2xl text-left transition-all duration-200 border cursor-pointer flex flex-col justify-between ${
+                  isSelected
+                    ? 'bg-slate-800 border-orange-500/80 shadow-lg ring-1 ring-orange-500/50'
+                    : 'bg-slate-900/80 border-slate-800 hover:border-slate-700 hover:bg-slate-850'
+                }`}
+              >
+                <div className="flex items-start justify-between gap-1">
+                  <div className="flex items-center gap-2">
+                    <div className={`w-8 h-8 rounded-lg flex items-center justify-center font-bold text-white shadow-xs shrink-0 ${
+                      brand.slug === 'havells' ? 'bg-red-600' :
+                      brand.slug === 'rr-kabel' ? 'bg-emerald-600' :
+                      brand.slug === 'crompton' ? 'bg-blue-600' :
+                      brand.slug === 'vguard' ? 'bg-amber-500 text-slate-950' :
+                      brand.slug === 'finolex' ? 'bg-cyan-600' :
+                      brand.slug === 'kundan' ? 'bg-indigo-700' : 'bg-orange-600'
+                    }`}>
+                      <Icon className="w-4 h-4" />
+                    </div>
+                    <div className="min-w-0">
+                      <h3 className="text-xs sm:text-sm font-extrabold text-white tracking-tight truncate">
+                        {brand.name}
+                      </h3>
+                      <span className="text-[9px] sm:text-[10px] text-orange-400 font-medium block truncate">
+                        {brand.badge}
+                      </span>
+                    </div>
+                  </div>
+                  {isSelected && (
+                    <span className="w-2 h-2 rounded-full bg-orange-400 animate-pulse mt-0.5 shrink-0"></span>
+                  )}
+                </div>
+
+                <p className="text-[10px] text-slate-300 mt-2 line-clamp-2 leading-tight hidden xs:block">
+                  {brand.tagline}
+                </p>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Selected Brand Detail Showcase Container */}
+        <div className="bg-slate-800/90 rounded-3xl p-6 sm:p-10 border border-slate-700 shadow-xl relative">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
-            <div className="space-y-4 text-left">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 text-orange-400 text-xs font-bold border border-slate-700">
-                <Award className="w-3.5 h-3.5" />
-                <span>Dedicated Authorized Dealer</span>
+            {/* Left Content Area */}
+            <div className="lg:col-span-8 space-y-5 text-left">
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900 text-orange-400 text-xs font-bold border border-slate-700">
+                  <Award className="w-3.5 h-3.5" />
+                  <span>{selectedBrand.badge}</span>
+                </span>
+                <span className="text-xs text-slate-400 font-medium hidden sm:inline">
+                  • 100% Genuine In-Store Stock
+                </span>
               </div>
               
-              <h3 className="text-3xl font-extrabold text-white tracking-tight">
-                SANTÉ <span className="text-orange-400 font-light text-2xl">Bath Fittings</span>
-              </h3>
+              <div>
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+                  {selectedBrand.name}
+                </h3>
+                <p className="text-orange-400 font-semibold text-xs sm:text-sm mt-1">
+                  {selectedBrand.tagline}
+                </p>
+              </div>
               
-              <p className="text-slate-300 text-sm sm:text-base leading-relaxed max-w-lg">
-                Official dealer for Santé Bath Fittings. Explore our showroom display featuring premium brass basin mixers, diverters, health faucets, showers, and architectural CP bathroom accessories.
+              <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+                {selectedBrand.description}
               </p>
 
-              <div className="grid grid-cols-2 gap-3 pt-2">
-                <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-200">
-                  <Check className="w-4 h-4 text-orange-400" />
-                  <span>100% Genuine Warranty</span>
+              {/* Product Categories Pills */}
+              <div className="space-y-2 pt-1">
+                <h4 className="text-xs uppercase font-bold text-slate-400 tracking-wider">
+                  Available Categories & Product Lines
+                </h4>
+                <div className="flex flex-wrap gap-2">
+                  {selectedBrand.categories.map((cat, i) => (
+                    <span
+                      key={i}
+                      className="px-3 py-1 rounded-lg bg-slate-900/90 text-slate-200 text-xs font-semibold border border-slate-700"
+                    >
+                      {cat}
+                    </span>
+                  ))}
                 </div>
-                <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-200">
-                  <Check className="w-4 h-4 text-orange-400" />
-                  <span>Mirror Chrome Durability</span>
-                </div>
-                <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-200">
-                  <Check className="w-4 h-4 text-orange-400" />
-                  <span>Full Replacement Spares</span>
-                </div>
-                <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-200">
-                  <Check className="w-4 h-4 text-orange-400" />
-                  <span>Showroom Touch & Feel</span>
-                </div>
+              </div>
+
+              {/* Feature Checkpoints */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                {selectedBrand.features.map((feat, idx) => (
+                  <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-200">
+                    <Check className="w-4 h-4 text-orange-400 shrink-0 mt-0.5" />
+                    <span className="leading-snug">{feat}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Action Button */}
+              <div className="pt-2">
+                <button
+                  onClick={() => handleExploreBrand(selectedBrand.slug)}
+                  className="bg-orange-600 hover:bg-orange-500 text-white font-bold text-xs sm:text-sm px-6 py-3 rounded-xl transition-all shadow-md cursor-pointer inline-flex items-center gap-2"
+                >
+                  <span>Explore {selectedBrand.name} Catalog</span>
+                  <Sparkles className="w-4 h-4" />
+                </button>
               </div>
             </div>
 
-            {/* Visual Badge Icon */}
-            <div className="shrink-0 flex flex-col items-center justify-center p-6 bg-slate-900 rounded-2xl border border-slate-700 text-center w-full md:w-56">
-              <div className="w-14 h-14 rounded-2xl bg-orange-600 flex items-center justify-center text-white mb-3 shadow-sm">
-                <Droplets className="w-7 h-7" />
+            {/* Right Visual Brand Summary Column */}
+            <div className="lg:col-span-4 flex flex-col justify-center p-5 rounded-2xl bg-slate-900/90 border border-slate-700/80 space-y-4">
+              <div className="flex items-center gap-3">
+                <div className={`w-12 h-12 rounded-xl flex items-center justify-center text-white font-bold shadow-md shrink-0 ${
+                  selectedBrand.slug === 'havells' ? 'bg-red-600' :
+                  selectedBrand.slug === 'rr-kabel' ? 'bg-emerald-600' :
+                  selectedBrand.slug === 'crompton' ? 'bg-blue-600' :
+                  selectedBrand.slug === 'vguard' ? 'bg-amber-500 text-slate-950' :
+                  selectedBrand.slug === 'finolex' ? 'bg-cyan-600' :
+                  selectedBrand.slug === 'kundan' ? 'bg-indigo-700' : 'bg-orange-600'
+                }`}>
+                  {React.createElement(brandIcons[selectedBrand.slug] || Award, { className: 'w-6 h-6' })}
+                </div>
+                <div>
+                  <h4 className="font-extrabold text-white text-base sm:text-lg">{selectedBrand.name} Lineup</h4>
+                  <p className="text-xs text-orange-400 font-semibold">Immediate Dispatch</p>
+                </div>
               </div>
-              <span className="text-sm font-bold text-white uppercase tracking-wider">Santé Dealer</span>
-              <span className="text-xs text-slate-400 mt-0.5">Showroom Partner</span>
-              <span className="mt-3 text-xs text-slate-200 font-medium bg-slate-800 px-3 py-1 rounded border border-slate-700">
-                Direct Distribution
-              </span>
+
+              <div className="border-t border-slate-800 pt-3 space-y-2">
+                <div className="text-xs text-slate-400 font-medium">In-Stock Highlights:</div>
+                <div className="p-3 bg-slate-950/80 rounded-xl border border-slate-800 text-xs text-slate-200 leading-relaxed font-mono">
+                  {selectedBrand.productsSummary}
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-2 text-xs pt-1">
+                <div className="p-2.5 rounded-lg bg-slate-800/80 border border-slate-700/60 text-center">
+                  <span className="block font-bold text-white">100%</span>
+                  <span className="text-[10px] text-slate-400">Genuine ISI</span>
+                </div>
+                <div className="p-2.5 rounded-lg bg-slate-800/80 border border-slate-700/60 text-center">
+                  <span className="block font-bold text-white">Full Range</span>
+                  <span className="text-[10px] text-slate-400">Warranty Support</span>
+                </div>
+              </div>
             </div>
 
           </div>
@@ -82,3 +217,4 @@ export default function BrandsSection() {
     </section>
   );
 }
+
