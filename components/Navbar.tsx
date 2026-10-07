@@ -2,8 +2,9 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { Phone, Menu, X, Building2, ChevronRight, MessageSquare, Award } from 'lucide-react';
+import { Phone, Menu, X, ChevronRight, MessageSquare, Award } from 'lucide-react';
 import { STORE_INFO } from '@/data/storeData';
 import { useQuote } from '@/context/QuoteContext';
 
@@ -101,10 +102,17 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
             {/* Brand Logo & Name */}
             <Link 
               href="/" 
-              className="flex items-center gap-1.5 sm:gap-3 group focus:outline-none min-w-0"
+              className="flex items-center gap-2 sm:gap-3 group focus:outline-none min-w-0"
             >
-              <div className="w-8 h-8 sm:w-11 sm:h-11 rounded-lg sm:rounded-xl bg-[#0B192C] flex items-center justify-center text-white shadow-sm shrink-0">
-                <Building2 className="w-4 h-4 sm:w-6 sm:h-6 text-orange-400" />
+              <div className="relative w-9 h-9 sm:w-12 sm:h-12 rounded-xl bg-[#0B192C] overflow-hidden border border-slate-700/80 shadow-md shrink-0">
+                <Image
+                  src="/images/logo.png"
+                  alt="Sri Krishna Traders Logo"
+                  fill
+                  sizes="48px"
+                  className="object-cover"
+                  priority
+                />
               </div>
               <div className="flex flex-col justify-center min-w-0">
                 <div className="flex flex-col sm:flex-row sm:items-center whitespace-nowrap leading-none">
@@ -212,8 +220,14 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
             {/* Drawer Header */}
             <div className="p-4 bg-[#0B192C] text-white flex items-center justify-between border-b border-slate-800">
               <div className="flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center">
-                  <Building2 className="w-4 h-4 text-orange-400" />
+                <div className="relative w-8 h-8 rounded-lg bg-slate-800 overflow-hidden border border-slate-700 shrink-0">
+                  <Image
+                    src="/images/logo.png"
+                    alt="Sri Krishna Traders Logo"
+                    fill
+                    sizes="32px"
+                    className="object-cover"
+                  />
                 </div>
                 <div>
                   <div className="font-extrabold text-sm tracking-tight leading-none">

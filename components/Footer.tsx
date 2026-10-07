@@ -2,7 +2,8 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Building2, Phone, MessageSquare, Mail, MapPin, Clock, ArrowUp, ChevronRight } from 'lucide-react';
+import Image from 'next/image';
+import { Phone, MessageSquare, Mail, MapPin, Clock, ArrowUp, ChevronRight } from 'lucide-react';
 import { STORE_INFO } from '@/data/storeData';
 
 export default function Footer() {
@@ -48,8 +49,14 @@ export default function Footer() {
           {/* Brand header */}
           <div className="flex items-center justify-between pb-4 border-b border-slate-800/80">
             <Link href="/" className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center text-white">
-                <Building2 className="w-4 h-4 text-orange-400" />
+              <div className="relative w-9 h-9 rounded-lg bg-slate-800 border border-slate-700 overflow-hidden shrink-0">
+                <Image
+                  src="/images/logo.png"
+                  alt="Sri Krishna Traders Logo"
+                  fill
+                  sizes="36px"
+                  className="object-cover"
+                />
               </div>
               <div>
                 <span className="font-bold text-sm text-white tracking-tight">SRI KRISHNA</span>{' '}
@@ -151,8 +158,14 @@ export default function Footer() {
           {/* Column 1: Company Profile (4 cols) */}
           <div className="lg:col-span-4 space-y-4">
             <Link href="/" className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center text-white shadow-sm">
-                <Building2 className="w-5 h-5 text-orange-400" />
+              <div className="relative w-11 h-11 rounded-xl bg-slate-800 border border-slate-700 overflow-hidden shadow-md shrink-0">
+                <Image
+                  src="/images/logo.png"
+                  alt="Sri Krishna Traders Logo"
+                  fill
+                  sizes="44px"
+                  className="object-cover"
+                />
               </div>
               <div>
                 <span className="font-extrabold text-xl tracking-tight text-white">SRI KRISHNA</span>{' '}

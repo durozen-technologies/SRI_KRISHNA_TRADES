@@ -44,6 +44,10 @@ export const metadata: Metadata = {
     "Plumbing Solutions"
   ],
   authors: [{ name: "Sri Krishna Traders" }],
+  icons: {
+    icon: "/images/logo.png",
+    apple: "/images/logo.png"
+  }
 };
 
 export default function RootLayout({
