@@ -182,16 +182,6 @@ export default function Hero({ onOpenQuote }: HeroProps) {
                 />
               </div>
 
-              {/* Floating Badge Top Right */}
-              <div className="absolute -top-3 -right-3 bg-white p-2.5 sm:p-3 rounded-2xl shadow-md border border-slate-200 flex items-center gap-2.5 animate-fade-in z-10">
-                <div className="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center font-bold">
-                  <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5" />
-                </div>
-                <div>
-                  <div className="text-[11px] sm:text-xs font-bold text-slate-900">Direct On-Site Dispatch</div>
-                  <div className="text-[10px] sm:text-xs text-slate-600">For Homes & Sites</div>
-                </div>
-              </div>
 
               {/* Floating Badge Bottom Left */}
               <div className="hidden sm:flex absolute -bottom-3 -left-3 bg-[#0B192C] text-white p-2.5 sm:p-3 rounded-2xl shadow-md border border-slate-700 items-center gap-2.5 z-10">
