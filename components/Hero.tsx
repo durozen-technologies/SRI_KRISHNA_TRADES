@@ -35,37 +35,30 @@ export default function Hero({ onOpenQuote }: HeroProps) {
         {/* MOBILE & TABLET COMPACT HERO (< lg screens)               */}
         {/* ========================================================= */}
         <div className="lg:hidden space-y-4">
-          {/* Top Row: Left Text Content + Right Compact Shop Image */}
-          <div className="flex items-start justify-between gap-3">
-            <div className="flex-1 min-w-0 space-y-2">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#0B192C] text-orange-400 text-xs font-bold tracking-wider uppercase">
-                <Sparkles className="w-3.5 h-3.5 text-orange-400" />
-                <span>{STORE_INFO.label}</span>
-              </div>
+          {/* Top Text Content */}
+          <div className="space-y-2">
+            <h1 className="text-2xl xs:text-3xl font-extrabold text-[#0B192C] leading-tight tracking-tight">
+              Quality Products <br />
+              <span className="text-orange-600">
+                for Every Home
+              </span>
+            </h1>
 
-              <h1 className="text-xl xs:text-2xl sm:text-3xl font-extrabold text-[#0B192C] leading-tight tracking-tight">
-                Quality Products <br />
-                <span className="text-orange-600">
-                  for Every Home
-                </span>
-              </h1>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              {STORE_INFO.heroSubtitle}
+            </p>
+          </div>
 
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed line-clamp-3">
-                {STORE_INFO.heroSubtitle}
-              </p>
-            </div>
-
-            {/* Compact Right-Aligned Hero Image with High Brightness & Vivid Clarity */}
-            <div className="w-28 xs:w-34 sm:w-44 aspect-[4/3] rounded-2xl overflow-hidden shadow-sm border-2 border-white bg-slate-900 shrink-0 relative mt-0.5">
-              <Image
-                src="/images/storefront-latest.png"
-                alt="Sri Krishna Traders Storefront & Counter"
-                fill
-                sizes="(max-width: 640px) 45vw, 35vw"
-                className="object-cover object-center brightness-[1.05] contrast-[1.02]"
-                priority
-              />
-            </div>
+          {/* Big Full-Width Storefront Image for Mobile */}
+          <div className="relative w-full aspect-[16/8] rounded-2xl overflow-hidden shadow-lg border-2 border-white bg-slate-900">
+            <Image
+              src="/images/storefront-latest.png"
+              alt="Sri Krishna Traders Storefront & Counter"
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover object-center"
+              priority
+            />
           </div>
 
           {/* CTA Buttons Row */}
@@ -172,14 +165,14 @@ export default function Hero({ onOpenQuote }: HeroProps) {
           <div className="lg:col-span-6 relative">
             <div className="relative mx-auto max-w-lg lg:max-w-none">
               
-              {/* Main Showroom & Materials Visual Frame */}
-              <div className="relative rounded-3xl overflow-hidden shadow-lg border-4 border-white bg-slate-900 aspect-[16/10]">
+              {/* Main Showroom & Materials Visual Frame - Slightly increased vertical height */}
+              <div className="relative rounded-3xl overflow-hidden shadow-xl border-4 border-white bg-slate-900 aspect-[16/8]">
                 <Image
                   src="/images/storefront-latest.png"
                   alt="Sri Krishna Traders Hardware & Building Materials Store"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover object-center brightness-[1.05] contrast-[1.02]"
+                  className="object-cover object-center"
                   priority
                 />
               </div>
