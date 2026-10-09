@@ -39,11 +39,11 @@ export default function About() {
             <div className="relative mx-auto max-w-md lg:max-w-none">
               <div className="relative rounded-3xl overflow-hidden shadow-xl border-4 border-white bg-slate-900 aspect-[4/5]">
                 <Image
-                  src="/images/store-interior.png"
+                  src="/images/storefront-latest.png"
                   alt="Sri Krishna Traders Showroom & Comprehensive Material Inventory"
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover object-center brightness-[1.12] contrast-[1.06]"
+                  className="object-cover object-center brightness-[1.05] contrast-[1.02]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-900/25 to-transparent"></div>
                 
