@@ -43,7 +43,7 @@ export default function About() {
                   alt="Sri Krishna Traders Showroom & Comprehensive Material Inventory"
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover object-center brightness-[1.12] contrast-[1.06]"
+                  className="object-cover object-center brightness-[0.95] contrast-[1.04]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-900/25 to-transparent"></div>
                 

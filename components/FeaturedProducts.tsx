@@ -31,28 +31,36 @@ export default function FeaturedProducts({ onEnquireProduct, selectedCategoryFil
 
   const categoryTabs = [
     { label: 'All Products', slug: 'all' },
-    { label: 'Havells Ceiling Fans', slug: 'havells-ceiling-fans' },
-    { label: 'Electrical & Geysers (Havells, Crompton, V-Guard)', slug: 'electrical-goods' },
-    { label: 'Pipes & Plumbing (Finolex)', slug: 'pipes-plumbing' },
-    { label: 'Water Storage', slug: 'water-storage' },
-    { label: 'Bathroom & Sanitary Ware', slug: 'bathroom-sanitary' },
+    { label: 'Fans & Ventilation', slug: 'fans-ventilation' },
+    { label: 'Lighting & Gate Lights', slug: 'lighting-fixtures' },
+    { label: 'Wires & Cables', slug: 'wires-cables' },
+    { label: 'Switches & Electricals', slug: 'electrical-goods' },
+    { label: 'Pipes & Plumbing', slug: 'pipes-plumbing' },
+    { label: 'Motors & Pumps', slug: 'motors-pumps' },
+    { label: 'Water Heaters (Geysers)', slug: 'water-heaters' },
+    { label: 'Water Storage Tanks', slug: 'water-storage' },
+    { label: 'Bathroom, Taps & Sanitary', slug: 'bathroom-sanitary' },
+    { label: 'Tools & Hardware', slug: 'hardware-essentials' },
   ];
 
   const brandTabs = [
     { label: 'All Brands', slug: 'all' },
-    { label: 'Crompton', slug: 'crompton', badge: 'Lights, Fans & Wall Fans' },
-    { label: 'Havells', slug: 'havells', badge: 'Wires, Lights, Fans, MCB' },
-    { label: 'RR Kābel', slug: 'rr-kabel', badge: 'Superex Green HR+FR' },
-    { label: 'Finolex', slug: 'finolex', badge: 'Pipes & Cables' },
-    { label: 'V-Guard', slug: 'vguard', badge: 'Valco Geysers & Stabilizers' },
-    { label: 'Kundan Cable', slug: 'kundan', badge: 'K-Plus 1.1kV Wires' },
+    { label: 'Havells', slug: 'havells', dot: 'bg-red-500' },
+    { label: 'Crompton', slug: 'crompton', dot: 'bg-blue-500' },
+    { label: 'Luker', slug: 'luker', dot: 'bg-amber-500' },
+    { label: 'Finolex', slug: 'finolex', dot: 'bg-cyan-500' },
+    { label: 'RR Kābel / RR', slug: 'rr-kabel', dot: 'bg-emerald-500' },
+    { label: 'V-Guard', slug: 'vguard', dot: 'bg-yellow-500' },
+    { label: 'Kundan Cable', slug: 'kundan', dot: 'bg-indigo-500' },
+    { label: 'CERA', slug: 'cera', dot: 'bg-teal-500' },
+    { label: 'Parryware', slug: 'parryware', dot: 'bg-purple-500' },
+    { label: 'Cheran & Sharp', slug: 'cheran-sharp', dot: 'bg-blue-700' },
+    { label: 'Supreme', slug: 'supreme', dot: 'bg-red-700' },
+    { label: 'Taparia & Venus', slug: 'taparia-venus', dot: 'bg-orange-600' },
   ];
 
   const filteredProducts = PRODUCTS_DATA.filter((p) => {
-    const matchesCategory = 
-      activeCategory === 'all' || 
-      p.categorySlug === activeCategory ||
-      (activeCategory === 'electrical-goods' && p.categorySlug === 'havells-ceiling-fans');
+    const matchesCategory = activeCategory === 'all' || p.categorySlug === activeCategory;
     const matchesBrand = activeBrand === 'all' || p.brandSlug === activeBrand;
     return matchesCategory && matchesBrand;
   });
@@ -72,37 +80,43 @@ export default function FeaturedProducts({ onEnquireProduct, selectedCategoryFil
               Featured Products & Brands
             </h2>
             <p className="text-slate-600 text-sm sm:text-base mt-1 max-w-xl">
-              Genuine stock of Havells, RR Kābel, Finolex pipes & cables, Crompton fans, V-Guard geysers, and Kundan cables.
+              Genuine authorized stock of Havells, Crompton, Luker, Finolex, RR Kābel, V-Guard, Kundan, CERA, Parryware, Supreme, Cheran & Sharp, and Taparia.
             </p>
           </div>
 
           {/* Quick Brand Filter Badges */}
           <div className="flex flex-wrap items-center gap-2">
             <span className="text-xs font-bold text-slate-500 uppercase tracking-wider mr-1 hidden sm:inline">Filter Brand:</span>
-            {brandTabs.map((brand) => (
-              <button
-                key={brand.slug}
-                onClick={() => {
-                  setActiveBrand(brand.slug);
-                  if (brand.slug !== 'all') {
-                    setActiveCategory('all');
-                  }
-                }}
-                className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
-                  activeBrand === brand.slug
-                    ? 'bg-orange-600 text-white shadow-sm'
-                    : 'bg-white text-slate-700 hover:bg-slate-200/70 border border-slate-200'
-                }`}
-              >
-                {brand.slug === 'havells' && <span className="w-2 h-2 rounded-full bg-red-400"></span>}
-                {brand.slug === 'rr-kabel' && <span className="w-2 h-2 rounded-full bg-emerald-400"></span>}
-                {brand.slug === 'finolex' && <span className="w-2 h-2 rounded-full bg-cyan-400"></span>}
-                {brand.slug === 'crompton' && <span className="w-2 h-2 rounded-full bg-blue-400"></span>}
-                {brand.slug === 'vguard' && <span className="w-2 h-2 rounded-full bg-amber-400"></span>}
-                {brand.slug === 'kundan' && <span className="w-2 h-2 rounded-full bg-indigo-400"></span>}
-                <span>{brand.label}</span>
-              </button>
-            ))}
+            {brandTabs.map((brand) => {
+              const isHavells = brand.slug === 'havells';
+              return (
+                <button
+                  key={brand.slug}
+                  onClick={() => {
+                    setActiveBrand(brand.slug);
+                    if (brand.slug !== 'all') {
+                      setActiveCategory('all');
+                    }
+                  }}
+                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center gap-1.5 ${
+                    activeBrand === brand.slug
+                      ? isHavells
+                        ? 'bg-red-600 text-white shadow-md ring-2 ring-red-400'
+                        : 'bg-orange-600 text-white shadow-sm'
+                      : isHavells
+                        ? 'bg-red-50 text-red-700 hover:bg-red-100 border-2 border-red-400/80 font-black'
+                        : 'bg-white text-slate-700 hover:bg-slate-200/70 border border-slate-200'
+                  }`}
+                >
+                  {isHavells ? (
+                    <span className="text-amber-300 font-black">★</span>
+                  ) : (
+                    brand.dot && <span className={`w-2 h-2 rounded-full ${brand.dot}`}></span>
+                  )}
+                  <span>{isHavells ? 'Havells (Flagship)' : brand.label}</span>
+                </button>
+              );
+            })}
           </div>
         </div>
 

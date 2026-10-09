@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { ArrowRight, Droplets, Zap, Wrench, Cylinder, Layers, Hammer, LucideIcon } from 'lucide-react';
+import { ArrowRight, Droplets, Zap, Wrench, Cylinder, Layers, Hammer, Fan, Lightbulb, Flame, Activity, ShieldCheck, LucideIcon } from 'lucide-react';
 import { Category } from '@/data/storeData';
 
 interface CategoryCardProps {
@@ -11,12 +11,17 @@ interface CategoryCardProps {
 }
 
 const iconMap: Record<string, LucideIcon> = {
-  'bathroom-sanitary': Droplets,
+  'fans-ventilation': Fan,
+  'lighting-fixtures': Lightbulb,
+  'wires-cables': ShieldCheck,
   'electrical-goods': Zap,
   'pipes-plumbing': Wrench,
+  'water-heaters': Flame,
+  'motors-pumps': Activity,
   'water-storage': Cylinder,
-  'building-materials': Layers,
+  'bathroom-sanitary': Droplets,
   'hardware-essentials': Hammer,
+  'building-materials': Layers,
 };
 
 export default function CategoryCard({ category, onSelectCategory }: CategoryCardProps) {

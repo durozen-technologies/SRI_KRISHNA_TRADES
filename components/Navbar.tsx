@@ -68,7 +68,9 @@ export default function Navbar({ onOpenQuote }: NavbarProps) {
           </div>
           <div className="hidden md:flex items-center gap-6 text-slate-300 text-xs">
             <span className="flex items-center gap-1.5">
-              <span className="text-orange-400 font-semibold">Authorized Brands:</span> Havells • Crompton • V-Guard • Finolex • RR Kābel
+              <span className="px-2 py-0.5 rounded bg-red-600 text-white font-extrabold text-[10px] uppercase tracking-wider">⭐ Flagship</span>
+              <span className="text-white font-bold">Havells</span>
+              <span className="text-slate-400">• Crompton • Finolex • V-Guard • RR Kābel • CERA</span>
             </span>
             <span className="text-slate-600">|</span>
             <span className="flex items-center gap-1.5 text-slate-300">

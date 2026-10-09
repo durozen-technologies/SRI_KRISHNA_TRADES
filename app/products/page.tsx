@@ -3,6 +3,8 @@
 import React, { useState } from 'react';
 import CategoriesSection from '@/components/CategoriesSection';
 import FeaturedProducts from '@/components/FeaturedProducts';
+import HavellsFlagshipSection from '@/components/HavellsFlagshipSection';
+import HavellsFanGuide from '@/components/HavellsFanGuide';
 import BrandsSection from '@/components/BrandsSection';
 import CTASection from '@/components/CTASection';
 import { useQuote } from '@/context/QuoteContext';
@@ -12,7 +14,7 @@ export default function ProductsPage() {
   const { openQuote, openProductDetail } = useQuote();
   const router = useRouter();
   const [selectedCategory, setSelectedCategory] = useState<string | undefined>();
-  const [selectedBrand, setSelectedBrand] = useState<string | undefined>();
+  const [selectedBrand, setSelectedBrand] = useState<string | undefined>('havells');
 
   const handleCategorySelect = (categorySlug: string) => {
     setSelectedCategory(categorySlug);
@@ -28,8 +30,25 @@ export default function ProductsPage() {
     if (elem) elem.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const handleHavellsSelect = () => {
+    setSelectedBrand('havells');
+    setSelectedCategory(undefined);
+    const elem = document.getElementById('products');
+    if (elem) elem.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <>
+      {/* Prime Flagship Brand Spotlight: Havells */}
+      <HavellsFlagshipSection
+        onSelectHavellsFilter={handleHavellsSelect}
+        onEnquireProduct={(prod) => openProductDetail(prod)}
+        onOpenQuote={() => openQuote()}
+      />
+
+      {/* Havells LOOK UP Fan Collection & Interactive Sizing Guide */}
+      <HavellsFanGuide onEnquireProduct={(prod) => openProductDetail(prod)} />
+
       {/* Product Categories */}
       <CategoriesSection onSelectCategory={handleCategorySelect} />
 

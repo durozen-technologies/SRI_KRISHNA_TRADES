@@ -2,9 +2,10 @@
 
 import React, { useState } from 'react';
 import Hero from '@/components/Hero';
-import CategoriesSection from '@/components/CategoriesSection';
 import WhyChooseUs from '@/components/WhyChooseUs';
 import FeaturedProducts from '@/components/FeaturedProducts';
+import HavellsFlagshipSection from '@/components/HavellsFlagshipSection';
+import HavellsFanGuide from '@/components/HavellsFanGuide';
 import BrandsSection from '@/components/BrandsSection';
 import About from '@/components/About';
 import LocationSection from '@/components/LocationSection';
@@ -15,10 +16,16 @@ import { useRouter } from 'next/navigation';
 export default function HomePage() {
   const { openQuote, openProductDetail } = useQuote();
   const router = useRouter();
-  const [selectedBrand, setSelectedBrand] = useState<string | undefined>();
+  const [selectedBrand, setSelectedBrand] = useState<string | undefined>('havells');
 
   const handleBrandSelect = (brandSlug: string) => {
     setSelectedBrand(brandSlug);
+    const elem = document.getElementById('products');
+    if (elem) elem.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleHavellsSelect = () => {
+    setSelectedBrand('havells');
     const elem = document.getElementById('products');
     if (elem) elem.scrollIntoView({ behavior: 'smooth' });
   };
@@ -28,8 +35,15 @@ export default function HomePage() {
       {/* Main Hero Section */}
       <Hero onOpenQuote={() => openQuote()} />
 
-      {/* Product Categories */}
-      <CategoriesSection onSelectCategory={() => router.push('/products')} />
+      {/* Flagship Brand Spotlight: Havells */}
+      <HavellsFlagshipSection
+        onSelectHavellsFilter={handleHavellsSelect}
+        onEnquireProduct={(prod) => openProductDetail(prod)}
+        onOpenQuote={() => openQuote()}
+      />
+
+      {/* Havells LOOK UP Fan Collection & Sizing Guide */}
+      <HavellsFanGuide onEnquireProduct={(prod) => openProductDetail(prod)} />
 
       {/* Split Why Choose Us Section */}
       <WhyChooseUs onContactClick={() => router.push('/contact')} />

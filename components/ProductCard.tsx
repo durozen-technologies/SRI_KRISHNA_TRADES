@@ -38,9 +38,16 @@ export default function ProductCard({ product, onEnquire }: ProductCardProps) {
             product.brandSlug === 'havells' ? 'bg-red-600 text-white' :
             product.brandSlug === 'rr-kabel' ? 'bg-emerald-600 text-white' :
             product.brandSlug === 'crompton' ? 'bg-blue-600 text-white' :
+            product.brandSlug === 'luker' ? 'bg-amber-600 text-white' :
             product.brandSlug === 'vguard' ? 'bg-amber-500 text-slate-950 font-extrabold' :
             product.brandSlug === 'finolex' ? 'bg-cyan-600 text-white' :
-            product.brandSlug === 'kundan' ? 'bg-indigo-700 text-white' : 'bg-slate-900 text-white border border-slate-700'
+            product.brandSlug === 'kundan' ? 'bg-indigo-700 text-white' :
+            product.brandSlug === 'cera' ? 'bg-teal-600 text-white' :
+            product.brandSlug === 'parryware' ? 'bg-purple-600 text-white' :
+            product.brandSlug === 'cheran-sharp' ? 'bg-blue-800 text-white' :
+            product.brandSlug === 'supreme' ? 'bg-red-700 text-white' :
+            product.brandSlug === 'taparia-venus' ? 'bg-orange-700 text-white' :
+            'bg-slate-900 text-white border border-slate-700'
           }`}>
             {product.brand}
           </div>
