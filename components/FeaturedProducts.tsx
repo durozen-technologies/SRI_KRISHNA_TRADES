@@ -40,8 +40,8 @@ export default function FeaturedProducts({ onEnquireProduct, selectedCategoryFil
 
   const brandTabs = [
     { label: 'All Brands', slug: 'all' },
+    { label: 'Havells', slug: 'havells', badge: 'Primary Partner • Wires, Fans, Lights, MCB' },
     { label: 'Crompton', slug: 'crompton', badge: 'Lights, Fans & Wall Fans' },
-    { label: 'Havells', slug: 'havells', badge: 'Wires, Lights, Fans, MCB' },
     { label: 'RR Kābel', slug: 'rr-kabel', badge: 'Superex Green HR+FR' },
     { label: 'Finolex', slug: 'finolex', badge: 'Pipes & Cables' },
     { label: 'V-Guard', slug: 'vguard', badge: 'Valco Geysers & Stabilizers' },

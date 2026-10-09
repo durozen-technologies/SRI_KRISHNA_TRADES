@@ -64,6 +64,23 @@ export interface GalleryItem {
 
 export const BRANDS_DATA: Brand[] = [
   {
+    id: "brand-havells",
+    name: "Havells",
+    slug: "havells",
+    tagline: "Lights • Wires & Cables • Fans • MCB & MCB Boxes",
+    description: "Primary authorized electrical brand known for industrial safety standards, high-durability FR-LSH copper wires, decorative ceiling fans, commercial & home LED lighting, and certified Euro-II MCBs & Distribution Boxes.",
+    categories: ["FR-LSH Copper Wires", "Decorative & High-Speed Fans", "Recessed & Surface LED Lights", "MCB & Distribution Boxes"],
+    features: [
+      "100% Flame Retardant Low Smoke (FR-LSH) Wires",
+      "Euro-II C-Curve 10kA High-Breaking MCB & DB Boxes",
+      "Energy-Efficient High-CMM Ceiling & Exhaust Fans",
+      "Surge Protected Architectural LED Panel Lights"
+    ],
+    badge: "Primary Brand Partner",
+    productsSummary: "Wires (0.75 - 6.0 sq mm) • Stealth & Festiva Fans • Adore LED Panels • 6A-63A MCB • SPN/TPN DB Boxes",
+    accentColor: "from-red-600 to-rose-700"
+  },
+  {
     id: "brand-crompton",
     name: "Crompton",
     slug: "crompton",
@@ -79,23 +96,6 @@ export const BRANDS_DATA: Brand[] = [
     badge: "Authorized Dealership",
     productsSummary: "Energion BLDC Fans • Wall Fans • Aura High-Speed Fans • Laser Ray LED Battens",
     accentColor: "from-blue-600 to-cyan-700"
-  },
-  {
-    id: "brand-havells",
-    name: "Havells",
-    slug: "havells",
-    tagline: "Lights • Wires & Cables • Fans • MCB & MCB Boxes",
-    description: "Leading electrical solutions provider known for industrial safety standards, high-durability FR-LSH copper wires, decorative ceiling fans, commercial & home LED lighting, and certified Euro-II MCBs & Distribution Boxes.",
-    categories: ["FR-LSH Copper Wires", "Decorative & High-Speed Fans", "Recessed & Surface LED Lights", "MCB & Distribution Boxes"],
-    features: [
-      "100% Flame Retardant Low Smoke (FR-LSH) Wires",
-      "Euro-II C-Curve 10kA High-Breaking MCB & DB Boxes",
-      "Energy-Efficient High-CMM Ceiling & Exhaust Fans",
-      "Surge Protected Architectural LED Panel Lights"
-    ],
-    badge: "Authorized Electrical Partner",
-    productsSummary: "Wires (0.75 - 6.0 sq mm) • Stealth & Festiva Fans • Adore LED Panels • 6A-63A MCB • SPN/TPN DB Boxes",
-    accentColor: "from-red-600 to-rose-700"
   },
   {
     id: "brand-rr-kabel",
@@ -175,7 +175,7 @@ export const CATEGORIES_DATA: Category[] = [
     description: "Havells & Crompton lights, fans, FR-LSH wires, modular switches, and certified MCB boxes.",
     itemCount: "250+ Items",
     image: "/images/store-havells-lighting-wires-rack.jpg",
-    features: ["Havells FR-LSH Wires & MCBs", "Crompton BLDC & High-Speed Fans", "High-Lumen LED Battens & Panels"]
+    features: ["Havells FR-LSH Wires & MCBs", "Havells & Crompton BLDC Ceiling Fans", "High-Lumen LED Battens & Panels"]
   },
   {
     id: "cat-3",
@@ -225,57 +225,7 @@ export const CATEGORIES_DATA: Category[] = [
 ];
 
 export const PRODUCTS_DATA: Product[] = [
-  // --- CROMPTON PRODUCTS ---
-  {
-    id: "prod-crompton-wall-fan",
-    name: "Crompton High-Air Delivery Oscillating Wall Fan",
-    category: "Electrical Goods",
-    categorySlug: "electrical-goods",
-    description: "Customizable 3-speed wall mounted fan with 90° smooth horizontal oscillation, 10° vertical tilt adjustment, and dual pull cord control.",
-    specs: ["90° Smooth Horizontal Oscillation", "10° Vertical Tilt Adjustment", "Customizable 3-Speed Pull Cord", "High-Torque Aerodynamic Blades"],
-    image: "/images/crompton-wall-fan.jpg",
-    isPopular: true,
-    brand: "Crompton",
-    brandSlug: "crompton"
-  },
-  {
-    id: "prod-crompton-fan",
-    name: "Crompton Aura Designer High-Speed Ceiling Fan",
-    category: "Electrical Goods",
-    categorySlug: "electrical-goods",
-    description: "High-torque 100% copper motor with aerodynamically designed anti-dust ivory gold blades and superior air delivery.",
-    specs: ["1200mm Sweep", "380 RPM Super Fast Air Throw", "Anti-Dust Ivory & Gold Finish", "2-Year On-Site Warranty"],
-    image: "/images/crompton-ceiling-fan.jpg",
-    isPopular: true,
-    brand: "Crompton",
-    brandSlug: "crompton"
-  },
-  {
-    id: "prod-crompton-bldc",
-    name: "Crompton Energion BLDC 5-Star Energy Saver Ceiling Fan",
-    category: "Electrical Goods",
-    categorySlug: "electrical-goods",
-    description: "ActivBLDC motor consumes just 28W at top speed, offering up to 60% power savings with smart RF remote control.",
-    specs: ["28W Low Power Consumption (5-Star)", "Point-Anywhere Smart RF Remote", "High Speed 350 RPM / 220 CMM", "5-Year Motor Warranty"],
-    image: "/images/crompton-energion-bldc.jpg",
-    isPopular: true,
-    brand: "Crompton",
-    brandSlug: "crompton"
-  },
-  {
-    id: "prod-crompton-light",
-    name: "Crompton Laser Ray Ultra High-Lumen LED Batten",
-    category: "Electrical Goods",
-    categorySlug: "electrical-goods",
-    description: "High efficiency LED tube light batten with glare-free wide angle diffuser and robust aluminium back spine.",
-    specs: ["20W / 24W / 36W High Output", "100+ Lumens per Watt", "Flicker-Free Eye Comfort", "Surge Protection up to 2.5kV"],
-    image: "/images/crompton-led-batten.jpg",
-    isPopular: true,
-    brand: "Crompton",
-    brandSlug: "crompton"
-  },
-
-  // --- HAVELLS PRODUCTS (CEILING FANS & ELECTRICALS) ---
+  // --- HAVELLS PRODUCTS (PRIMARY BRAND - CEILING FANS & ELECTRICALS) ---
   {
     id: "prod-havells-stealth-ceiling-fan",
     name: "Havells Stealth Air 1200mm High-Efficiency Ceiling Fan",
@@ -361,11 +311,61 @@ export const PRODUCTS_DATA: Product[] = [
     category: "Electrical Goods",
     categorySlug: "electrical-goods",
     description: "Extensive showroom inventory of modular switches, fan speed regulators, 6A/16A combined sockets, indicator lights, and gang plates.",
-    specs: ["Modular 1M to 18M Gang Boxes & Plates", "Flame Retardant Polycarbonate Body", "Smooth Silver-Inlay Contact Switches", "Crompton, Havells & Luker Compatible"],
+    specs: ["Modular 1M to 18M Gang Boxes & Plates", "Flame Retardant Polycarbonate Body", "Smooth Silver-Inlay Contact Switches", "Havells, Crompton & Luker Compatible"],
     image: "/images/store-electrical-switches-rack.jpg",
     isPopular: true,
     brand: "Havells",
     brandSlug: "havells"
+  },
+
+  // --- CROMPTON PRODUCTS ---
+  {
+    id: "prod-crompton-wall-fan",
+    name: "Crompton High-Air Delivery Oscillating Wall Fan",
+    category: "Electrical Goods",
+    categorySlug: "electrical-goods",
+    description: "Customizable 3-speed wall mounted fan with 90° smooth horizontal oscillation, 10° vertical tilt adjustment, and dual pull cord control.",
+    specs: ["90° Smooth Horizontal Oscillation", "10° Vertical Tilt Adjustment", "Customizable 3-Speed Pull Cord", "High-Torque Aerodynamic Blades"],
+    image: "/images/crompton-wall-fan.jpg",
+    isPopular: true,
+    brand: "Crompton",
+    brandSlug: "crompton"
+  },
+  {
+    id: "prod-crompton-fan",
+    name: "Crompton Aura Designer High-Speed Ceiling Fan",
+    category: "Electrical Goods",
+    categorySlug: "electrical-goods",
+    description: "High-torque 100% copper motor with aerodynamically designed anti-dust ivory gold blades and superior air delivery.",
+    specs: ["1200mm Sweep", "380 RPM Super Fast Air Throw", "Anti-Dust Ivory & Gold Finish", "2-Year On-Site Warranty"],
+    image: "/images/crompton-ceiling-fan.jpg",
+    isPopular: true,
+    brand: "Crompton",
+    brandSlug: "crompton"
+  },
+  {
+    id: "prod-crompton-bldc",
+    name: "Crompton Energion BLDC 5-Star Energy Saver Ceiling Fan",
+    category: "Electrical Goods",
+    categorySlug: "electrical-goods",
+    description: "ActivBLDC motor consumes just 28W at top speed, offering up to 60% power savings with smart RF remote control.",
+    specs: ["28W Low Power Consumption (5-Star)", "Point-Anywhere Smart RF Remote", "High Speed 350 RPM / 220 CMM", "5-Year Motor Warranty"],
+    image: "/images/crompton-energion-bldc.jpg",
+    isPopular: true,
+    brand: "Crompton",
+    brandSlug: "crompton"
+  },
+  {
+    id: "prod-crompton-light",
+    name: "Crompton Laser Ray Ultra High-Lumen LED Batten",
+    category: "Electrical Goods",
+    categorySlug: "electrical-goods",
+    description: "High efficiency LED tube light batten with glare-free wide angle diffuser and robust aluminium back spine.",
+    specs: ["20W / 24W / 36W High Output", "100+ Lumens per Watt", "Flicker-Free Eye Comfort", "Surge Protection up to 2.5kV"],
+    image: "/images/crompton-led-batten.jpg",
+    isPopular: true,
+    brand: "Crompton",
+    brandSlug: "crompton"
   },
 
   // --- RR KABEL PRODUCTS ---

@@ -9,7 +9,7 @@ interface BrandsSectionProps {
 }
 
 export default function BrandsSection({ onSelectBrandFilter }: BrandsSectionProps) {
-  const [selectedBrandSlug, setSelectedBrandSlug] = useState<string>('crompton');
+  const [selectedBrandSlug, setSelectedBrandSlug] = useState<string>('havells');
 
   const selectedBrand = BRANDS_DATA.find((b) => b.slug === selectedBrandSlug) || BRANDS_DATA[0];
 
