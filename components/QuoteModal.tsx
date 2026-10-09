@@ -21,15 +21,48 @@ export default function QuoteModal({ isOpen, onClose, initialCategory = '', init
     deliveryRequired: true
   });
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => {
-      // Auto close or keep confirmation
-    }, 3000);
+    setIsSubmitting(true);
+
+    try {
+      const scriptUrl = process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_URL;
+      if (!scriptUrl) {
+        console.error("Script URL not configured.");
+        return;
+      }
+
+      await fetch(scriptUrl, {
+        method: 'POST',
+        // 'no-cors' is often needed for Google Scripts if they don't return correct CORS headers,
+        // but 'cors' is better if we want to read the response. The script returns ContentService JSON.
+        // Google Scripts post usually requires form url-encoded data or stringified JSON body.
+        // We will send stringified JSON as it handles nested structures better and matches our apps script setup.
+        body: JSON.stringify(formData),
+      });
+
+      setSubmitted(true);
+      setFormData({
+        name: '',
+        phone: '',
+        projectType: 'Home Renovation',
+        category: initialCategory || 'Bathroom & Sanitary Ware',
+        requirement: initialProduct ? `Inquiry regarding: ${initialProduct}` : '',
+        deliveryRequired: true
+      });
+      setTimeout(() => {
+        // Auto close or keep confirmation
+      }, 3000);
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("Failed to submit quote request. Please try WhatsApp instead.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleWhatsAppInquiry = () => {
@@ -180,9 +213,10 @@ export default function QuoteModal({ isOpen, onClose, initialCategory = '', init
               <div className="pt-2 flex flex-col sm:flex-row gap-3">
                 <button
                   type="submit"
-                  className="flex-1 bg-orange-600 hover:bg-orange-700 text-white font-semibold py-3 px-6 rounded-xl transition shadow-lg shadow-orange-600/20 flex items-center justify-center gap-2 text-sm cursor-pointer"
+                  disabled={isSubmitting}
+                  className="flex-1 bg-orange-600 hover:bg-orange-700 text-white font-semibold py-3 px-6 rounded-xl transition shadow-lg shadow-orange-600/20 flex items-center justify-center gap-2 text-sm cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed"
                 >
-                  Submit Quote Request
+                  {isSubmitting ? 'Sending...' : 'Submit Quote Request'}
                 </button>
                 <button
                   type="button"

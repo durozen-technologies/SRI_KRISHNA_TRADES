@@ -17,7 +17,7 @@
  */
 
 // 1. Enter your recipient email address below:
-const RECIPIENT_EMAIL = "srikrishnatraders.nkl@gmail.com"; // <-- UPDATE WITH YOUR EMAIL!
+const RECIPIENT_EMAIL = "soundararajanselvan2@gmail.com"; // <-- UPDATE WITH YOUR EMAIL!
 
 function doPost(e) {
   try {
@@ -90,7 +90,7 @@ function doPost(e) {
       <!-- Brand Header -->
       <div style="background-color: #0B192C; padding: 24px 20px; text-align: center; border-bottom: 3px solid #EA580C;">
         <h2 style="color: #ffffff; margin: 0; font-size: 20px; font-weight: 800; letter-spacing: 0.5px;">SRI KRISHNA TRADERS</h2>
-        <p style="color: #fb923c; margin: 4px 0 0 0; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">New Website Customer Quote Request</p>
+        <p style="color: #fb923c; margin: 4px 0 0 0; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">New Website Customer Quotation</p>
       </div>
 
       <div style="padding: 24px 20px;">
